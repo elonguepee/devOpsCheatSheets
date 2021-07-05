@@ -1,0 +1,19 @@
+version: '3'
+services:
+  # A MongoDB container with environment variables
+  mongodb: # The name of the container
+    image: mongo # The image used
+    ports: #Port mapping
+      - 27017:27017
+    environment: # environment variables
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+  # A different mongo-express container
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8080:8080
+    environment: 
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
