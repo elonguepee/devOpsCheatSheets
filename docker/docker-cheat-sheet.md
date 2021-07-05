@@ -46,6 +46,13 @@ Creates a docker network
 #### docker rm
 removes a docker container
 
+### Commands - docker compose
+#### docker compose -f <docker-compose-file> up
+Uses a docker compose file to create and start multiple containers
+
+#### docker compose -f <docker-compose-file> down
+Uses a docker compose file to stop multiple containers and their network
+
 ### Concepts
 #### Tags
 Tags are used to specify specific versions of images
