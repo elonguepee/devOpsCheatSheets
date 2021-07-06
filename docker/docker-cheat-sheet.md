@@ -35,7 +35,7 @@ Shows logs for a container
 -it Gets an interactive terminal
 Gets a terminal for a container
 
-### Commands - Advanced
+### Commands - Intermediate
 
 #### docker network ls
 Lists docker networks
@@ -51,6 +51,10 @@ Builds a dockerfile based on a docker file
 
 #### docker rmi <image>
 Deletes a docker image
+
+### Commands - Advanced
+#### docker run --entrypoint "/bin/sh" -it <image name>
+Runs a container in intereactive mode with a shell
 
 ### Commands - docker compose
 #### docker compose -f <docker-compose-file> up
