@@ -31,9 +31,13 @@ Lists pulled down images
 #### docker logs <containerID>
 Shows logs for a container
 
-#### docker exec
+#### docker exec <container> <command>
 -it Gets an interactive terminal
-Gets a terminal for a container
+Executes a command on a container
+To get a bash shell on a container
+```bash
+docker exec -t <container> bash
+```
 
 ### Commands - Intermediate
 
