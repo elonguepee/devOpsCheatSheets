@@ -47,7 +47,7 @@ Creates a docker network
 removes a docker container
 
 #### docker build -t <tag> <dockerfile location>
-Builds a dockerfile based on a docker file
+Builds a docker container based on a docker file
 
 #### docker rmi <image>
 Deletes a docker image
