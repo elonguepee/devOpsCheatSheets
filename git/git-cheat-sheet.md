@@ -38,4 +38,5 @@ Pulls and merges changes from a remote repository
 ```bash
 git diff --name-status <commit1> <commit2>
 ```
-Gives you a diff with just the name and status of changes between 2 commits.
+Gives you a diff with just the name and status of changes from the first commit to the second commit.  
+Order matters. It will list changes FROM commit1 TO commit2. So if the first commit is the head of a branch and the second commit is further behind, any new files will appear as deleted.
