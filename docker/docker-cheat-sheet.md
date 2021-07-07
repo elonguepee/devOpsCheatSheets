@@ -32,9 +32,9 @@ Lists pulled down images
 Shows logs for a container
 
 #### docker exec <container> <command>
--it Gets an interactive terminal
-Executes a command on a container
-To get a bash shell on a container
+-it Gets an interactive terminal\n
+Executes a command on a container\n
+To get a bash shell on a container:
 ```bash
 docker exec -t <container> bash
 ```
