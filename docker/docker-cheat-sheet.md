@@ -5,12 +5,12 @@
 
 #### docker run <containerId or imageName>
 creates a new docker container based on an image
-If an image is not found locally, it will be pulled from docker hub before being started
--e Can be used to set environment variables
--d Runs in detached mode, runs in background. Given Id of container.
--p specify a port to bind a container to. Ex -p 6000:6379 will bind local port 6000 to container port 6379
---name specify a name for container
---net let's you specify a docker network
+If an image is not found locally, it will be pulled from docker hub before being started\n
+-e Can be used to set environment variables\n
+-d Runs in detached mode, runs in background. Given Id of container.\n
+-p specify a port to bind a container to. Ex -p 6000:6379 will bind local port 6000 to container port 6379\n
+--name specify a name for container\n
+--net let's you specify a docker network\n
 
 #### docker start
 Restarts a stopped container
@@ -19,7 +19,7 @@ Restarts a stopped container
 Stops a docker container
 
 #### docker ps
-Lists running docker containers and their info
+Lists running docker containers and their info\n
 -a shows all containers including stopped ones
 
 #### docker pull
