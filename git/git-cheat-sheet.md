@@ -41,6 +41,13 @@ git diff --name-status <commit1> <commit2>
 Gives you a diff with just the name and status of changes from the first commit to the second commit.  
 Order matters. It will list changes FROM commit1 TO commit2. So if the first commit is the head of a branch and the second commit is further behind, any new files will appear as deleted.
 
+### Commands - Specific use cases
+
+```bash
+git log --format=%B -n 1 <commit>
+```
+Get's the commit message for a specific commit 
+
 ```bash
 git rev-list --ancestry-path <commit1> <commit2>
 ```
