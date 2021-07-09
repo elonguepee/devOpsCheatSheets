@@ -4,7 +4,7 @@
 ### Commands - Basic
 
 ```terraform
-resource "<provider>_<resource_type>" "name {
+resource "<provider>_<resource_type>" "<name>" {
     <config options>
 }
 ```
