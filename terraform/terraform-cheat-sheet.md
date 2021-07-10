@@ -23,12 +23,31 @@ terraform destroy
 Removes configuration managed by config file
 
 ### Syntax - Basic
-```terraform
+```hcl
 resource "<provider>_<resource_type>" "<name>" {
     <config>=<options>
 }
 ```
 Basic resource syntax. Name is just scoped to terraform.
+
+```hcl
+resource "aws_vpc" "test-vpc" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    "Name" = "test"
+  }
+}
+
+resource "aws_subnet" "subnet-1" {
+  vpc_id     = aws_vpc.test-vpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "test-subnet"
+  }
+}
+```
+A subnet referencing a vpc for AWS. This demonstrates how to reference properties of resources in a terraform file
 
 ### Concepts
 #### Declarative programming

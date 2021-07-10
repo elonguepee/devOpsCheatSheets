@@ -20,3 +20,15 @@ resource "aws_vpc" "main" {
 }
 ```
 A VPC in AWS
+
+```hcl
+resource "aws_subnet" "subnet-1" {
+  vpc_id     = aws_vpc.test-vpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "test-subnet"
+  }
+}
+```
+A subnet in AWS referencing a vpc
