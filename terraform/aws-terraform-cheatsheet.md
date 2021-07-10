@@ -44,7 +44,7 @@ resource "aws_internet_gateway" "production-gateway" {
 ```
 An internet gateway in aws referencing a vpc
 
-``hcl
+```hcl
 resource "aws_route_table" "prod-main-route" {
   vpc_id = aws_vpc.prod-vpc.id
 
@@ -59,3 +59,48 @@ resource "aws_route_table" "prod-main-route" {
 }
 ```
 A route table with a subnet associated with it
+
+
+```hcl
+resource "aws_network_interface" "test" {
+  subnet_id       = aws_subnet.public_a.id
+  private_ips     = ["10.0.0.50"]
+  security_groups = [aws_security_group.web.id]
+
+  attachment {
+    instance     = aws_instance.test.id
+    device_index = 1
+  }
+}
+```
+A network interface
+
+```hcl
+resource "aws_security_group" "allow_tls" {
+    name        = "allow_tls"
+    description = "Allow tls traffic from anywhere"
+    vpc_id      = aws_vpc.prod-vpc.id
+
+    ingress {
+        description      = "TLS from VPC"
+        from_port        = 443
+        to_port          = 443
+        protocol         = "tcp"
+        cidr_blocks      = ["0.0.0.0/0"]
+    }
+
+    egress {
+        from_port        = 0
+        to_port          = 0
+        protocol         = "-1"
+        cidr_blocks      = ["0.0.0.0/0"]
+        ipv6_cidr_blocks = ["::/0"]
+    }
+
+    tags = {
+        Name = "allow__all_web_and_ssh"
+    }
+}
+```
+A Security group that allows HTTPS traffic from anywhere and outbound traffic.
+**Note!** By default, AWS adds an outbound rule for all traffic. Terraform removes this rule, and it must be explicitly defined.
