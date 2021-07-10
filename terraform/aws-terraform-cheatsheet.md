@@ -102,7 +102,7 @@ resource "aws_security_group" "allow_tls" {
     }
 }
 ```
-A Security group that allows HTTPS traffic from anywhere and outbound traffic.
+A Security group that allows HTTPS traffic from anywhere and outbound traffic. Use from_port and to_port to enable a range of ports
 **Note!** By default, AWS adds an outbound rule for all traffic. Terraform removes this rule, and it must be explicitly defined.
 
 ```hcl

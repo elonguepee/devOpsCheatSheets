@@ -49,6 +49,22 @@ resource "aws_subnet" "subnet-1" {
 ```
 A subnet referencing a vpc for AWS. This demonstrates how to reference properties of resources in a terraform file
 
+```hcl
+resource "aws_eip" "apache-server-eip" {
+  vpc                       = true
+  network_interface         = aws_network_interface.prod-main-interface.id
+  associate_with_private_ip = "10.0.1.50"
+  depends_on = [
+    aws_internet_gateway.production-gw,
+    aws_instance.apache-server
+  ]
+  tags = {
+    "Name" = "apache-server-ip"
+  }
+}
+```
+An AWS eip resource demonstrating the depends_on syntax and the list syntax
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
