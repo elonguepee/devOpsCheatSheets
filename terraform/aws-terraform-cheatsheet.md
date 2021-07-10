@@ -32,3 +32,30 @@ resource "aws_subnet" "subnet-1" {
 }
 ```
 A subnet in AWS referencing a vpc
+
+```hcl
+resource "aws_internet_gateway" "production-gateway" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "main"
+  }
+}
+```
+An internet gateway in aws referencing a vpc
+
+``hcl
+resource "aws_route_table" "prod-main-route" {
+  vpc_id = aws_vpc.prod-vpc.id
+
+  route {
+    cidr_block = "10.0.1.0/24"
+    gateway_id = aws_internet_gateway.production-gw.id
+  }
+
+  tags = {
+    Name = "example"
+  }
+}
+```
+A route table with a subnet associated with it
