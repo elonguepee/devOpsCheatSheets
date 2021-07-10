@@ -22,6 +22,36 @@ terraform destroy
 ```
 Removes configuration managed by config file
 
+```bash
+terraform state list
+```
+lists current terraform state
+
+```bash
+terraform state show <resource.name>
+```
+shows the state of a specific resource
+
+```bash
+terraform refresh
+```
+refreshes the terraform state
+
+```bash
+terraform destroy -target <resource-name>
+```
+Destroys only targeted resource
+
+```bash
+terraform apply -var "<variable>=<variable value>"
+```
+Runs apply and sets a variable via command line
+
+```bash
+terraform apply -var-file "<filename>.tfvars"
+```
+Runs apply and sets variables based on a specific var file
+
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {
@@ -65,9 +95,32 @@ resource "aws_eip" "apache-server-eip" {
 ```
 An AWS eip resource demonstrating the depends_on syntax and the list syntax
 
+```hcl
+output "server_public_ip" {
+    value = aws_eip.apache-server-eip.public_ip
+}
+```
+Syntax for output from terraform apply command
+
+```hcl
+variable "subnet-prefix" {
+  description = "CIDR block for subnet"
+  default = "10.0.1.0/24"
+}
+```
+Syntax for variables. User will be prompted for variable
+
+```hcl
+cidr_block = var.subnet-prefix
+```
+syntax to use a variable
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
 
 #### Provider
 Plugins that allow Terraform to talk to specific APIs. AWS, Azure, etc.
+
+#### Terraform variables file
+Terraform automatically looks for a variables file called terraform.tfvars
