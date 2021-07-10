@@ -104,3 +104,20 @@ resource "aws_security_group" "allow_tls" {
 ```
 A Security group that allows HTTPS traffic from anywhere and outbound traffic.
 **Note!** By default, AWS adds an outbound rule for all traffic. Terraform removes this rule, and it must be explicitly defined.
+
+```hcl
+resource "aws_eip" "one" {
+  vpc                       = true
+  network_interface         = aws_network_interface.multi-ip.id
+  associate_with_private_ip = "10.0.0.10"
+}
+```
+A elastic ip associated with a network interface
+
+```hcl
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.foo.id
+  route_table_id = aws_route_table.bar.id
+}
+```
+A resource to associate a subnet with a route table
