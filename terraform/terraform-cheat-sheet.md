@@ -124,3 +124,15 @@ Plugins that allow Terraform to talk to specific APIs. AWS, Azure, etc. When a r
 
 #### Terraform variables file
 Terraform automatically looks for a variables file called terraform.tfvars
+
+#### Variable Types
+Variable Type | Example
+------------ | -------------
+string | "Example"
+number | 1
+bool | true
+any | Can be any data type
+List | ["string1", "string2"]
+map | key1=value1 \n key2=value2
+object | example = { \n key1 = value1 \n key2 = value2}
+tuple | ["String", 8, false]
