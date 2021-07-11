@@ -133,6 +133,6 @@ number | 1
 bool | true
 any | Can be any data type
 List | ["string1", "string2"]
-map | key1=value1 \n key2=value2
-object | example = { \n key1 = value1 \n key2 = value2}
+map | key1=value1 <br> key2=value2
+object | example = { <br> key1 = value1 <br> key2 = value2}
 tuple | ["String", 8, false]
