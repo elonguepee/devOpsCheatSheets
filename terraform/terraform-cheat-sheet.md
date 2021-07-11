@@ -120,7 +120,7 @@ syntax to use a variable
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
 
 #### Provider
-Plugins that allow Terraform to talk to specific APIs. AWS, Azure, etc.
+Plugins that allow Terraform to talk to specific APIs. AWS, Azure, etc. When a resource is being declared, the provider is usually the value before the underscore
 
 #### Terraform variables file
 Terraform automatically looks for a variables file called terraform.tfvars
