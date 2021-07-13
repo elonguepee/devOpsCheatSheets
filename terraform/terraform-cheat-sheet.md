@@ -63,6 +63,21 @@ terraform validate
 ```
 Validate syntax of terraform file
 
+```bash
+terraform fmt
+```
+Formats hcl to make more readable
+
+```bash
+terraform show
+```
+Shows state of terraform
+-json for json
+
+```bash
+terraform graph
+```
+Shows dependency graph
 
 ### Syntax - Basic
 ```hcl
@@ -148,3 +163,6 @@ List | ["string1", "string2"]
 map | key1=value1 <br> key2=value2
 object | example = { <br> key1 = value1 <br> key2 = value2<br>}
 tuple | ["String", 8, false]
+
+#### Life Cycle Rules
+Rules that are followed at certain points in a resources lifecylce. Such as create_before_destroy. Which will ensure that a new resource is created to replace the old one before it is destroyed.
