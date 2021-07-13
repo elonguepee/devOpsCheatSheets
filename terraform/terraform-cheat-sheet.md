@@ -52,6 +52,18 @@ terraform apply -var-file "<filename>.tfvars"
 ```
 Runs apply and sets variables based on a specific var file
 
+```bash
+terraform output
+```
+Shows all of the output variables
+Can specify a specific variable to get value of that variable specifically
+
+```bash
+terraform validate
+```
+Validate syntax of terraform file
+
+
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {
@@ -134,5 +146,5 @@ bool | true
 any | Can be any data type
 List | ["string1", "string2"]
 map | key1=value1 <br> key2=value2
-object | example = { <br> key1 = value1 <br> key2 = value2}
+object | example = { <br> key1 = value1 <br> key2 = value2<br>}
 tuple | ["String", 8, false]
