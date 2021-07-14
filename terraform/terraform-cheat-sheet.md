@@ -149,6 +149,41 @@ data "<provider>_<resource_type>" "<name>" {
 ```
 syntax for data source
 
+```hcl
+variable "example" {
+  default = [
+    "example1",
+    "example2",
+    "example3"
+  ]
+}
+
+resource "<provider>_<resource_type>" "<name>" {
+    name = var.example[count.index]
+
+    count = length(var.filename)
+}
+```
+An example using the count meta-argument length function
+
+```hcl
+variable "example" {
+  type=set(string)
+  default = [
+    "example1",
+    "example2",
+    "example3"
+  ]
+}
+
+resource "<provider>_<resource_type>" "<name>" {
+    name = each.value
+
+    for_each = var.example
+}
+```
+An example for each
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
@@ -166,7 +201,8 @@ string | "Example"
 number | 1
 bool | true
 any | Can be any data type
-List | ["string1", "string2"]
+list | ["string1", "string2"]
+set | Like a list, but cannot contain duplicate elements
 map | key1=value1 <br> key2=value2
 object | example = { <br> key1 = value1 <br> key2 = value2<br>}
 tuple | ["String", 8, false]
@@ -179,3 +215,6 @@ Allow Terraform to read attributes for resources that are provisions outside of 
 
 #### Data Sources vs. Resources
 A data source can only be read from, while a resources is fully managed by Terraform and can be read, created, modified, etc.
+
+#### For Each Meta argument
+Iterates over either a map or a set. Can only iterate over these variable types
