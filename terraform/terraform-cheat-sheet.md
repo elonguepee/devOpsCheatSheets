@@ -166,3 +166,6 @@ tuple | ["String", 8, false]
 
 #### Life Cycle Rules
 Rules that are followed at certain points in a resources lifecylce. Such as create_before_destroy. Which will ensure that a new resource is created to replace the old one before it is destroyed.
+
+#### Data sources
+Allow Terraform to read attributes for resources that are provisions outside of terraform's control
