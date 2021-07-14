@@ -142,6 +142,13 @@ cidr_block = var.subnet-prefix
 ```
 syntax to use a variable
 
+```hcl
+data "<provider>_<resource_type>" "<name>" {
+    <config>=<options>
+}
+```
+syntax for data source
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
@@ -168,4 +175,7 @@ tuple | ["String", 8, false]
 Rules that are followed at certain points in a resources lifecylce. Such as create_before_destroy. Which will ensure that a new resource is created to replace the old one before it is destroyed.
 
 #### Data sources
-Allow Terraform to read attributes for resources that are provisions outside of terraform's control
+Allow Terraform to read attributes for resources that are provisions outside of terraform's control.
+
+#### Data Sources vs. Resources
+A data source can only be read from, while a resources is fully managed by Terraform and can be read, created, modified, etc.
