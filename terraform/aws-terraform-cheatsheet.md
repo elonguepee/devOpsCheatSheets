@@ -130,7 +130,7 @@ A resource to associate a subnet with a route table
 
 ### Syntax - IAM
 
-```
+```hcl
 resource "aws_iam_policy" "adminUser" {
   name = "AdminUsers"
   policy = file("admin-policy.json")
