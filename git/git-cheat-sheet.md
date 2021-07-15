@@ -46,6 +46,11 @@ git stash
 ```
 Stashes changes
 
+```bash
+git reset --hard HEAD
+git clean -df
+```
+This will reset local repo completely to the latest commit it has pulled down. This will discard any changes. It is ggod for resetting before pulling down. 
 
 ### Commands - Specific use cases
 
