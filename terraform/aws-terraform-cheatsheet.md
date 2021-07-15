@@ -127,3 +127,13 @@ resource "aws_route_table_association" "a" {
 }
 ```
 A resource to associate a subnet with a route table
+
+### Syntax - IAM
+
+```
+resource "aws_iam_policy" "adminUser" {
+  name = "AdminUsers"
+  policy = file("admin-policy.json")
+}
+```
+Syntax for creating an IAM policy from a file
