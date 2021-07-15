@@ -184,6 +184,18 @@ resource "<provider>_<resource_type>" "<name>" {
 ```
 An example for each
 
+```hcl
+terraform {
+  required_providers {
+    local = {
+      source = "hashicorp/local"
+      version = "2.0.0"
+    }
+  }
+}
+```
+Example syntax for requiring a provider
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.

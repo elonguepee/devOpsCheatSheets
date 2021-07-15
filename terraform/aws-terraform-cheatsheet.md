@@ -1,6 +1,12 @@
 # Terraform Cheat sheet
 ## A Cheat sheet for terraform with AWS and related topics
 
+### CLI commands
+```bash
+aws configure
+```
+This can be used to set your access key and secret key. This will store it locally and will be passed in automatically to terraform so there is no need for storing credentials in variable files
+
 ### Syntax - Basic
 ```hcl
 resource "aws_instance" "basic-ec2-server" {
