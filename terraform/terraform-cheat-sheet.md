@@ -196,6 +196,32 @@ terraform {
 ```
 Example syntax for requiring a provider
 
+### Syntax - Intermediate
+```hcl
+resource "aws_iam_policy" "adminUser" {
+  name = "AdminUsers"
+  policy = file("admin-policy.json")
+}
+```
+Example syntax for using a file to input into resource
+
+```hcl
+resource "aws_iam_policy" "adminUser" {
+  name = "AdminUsers"
+  policy = <<EOF
+  {
+    "Version" : "Example"
+    "Statement": [
+      {
+        "Effect": "Allow"
+      }
+    ]
+  }
+  EOF
+}
+```
+Example syntax for HEREDOC format to input a file inline.
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
