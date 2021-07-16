@@ -9,6 +9,13 @@ This can be used to set your access key and secret key. This will store it local
 
 ### Syntax - Basic
 ```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+```
+Syntax for setting up aws provider. A access key and secret key could be supplied here, but is generally more secure to set it up with the aws configure cli command.
+
+```hcl
 resource "aws_instance" "basic-ec2-server" {
     ami           = "ami-0dc2d3e4c0f9ebd18"
     instance_type = "t2.micro"
