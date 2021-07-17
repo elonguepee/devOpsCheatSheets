@@ -143,6 +143,15 @@ resource "aws_s3_bucket" "example_bucket" {
 ```
 An S3 bucket
 
+```
+resource "aws_s3_bucket_object" "upload" {
+  bucket = aws_s3_bucket.example_bucket.id
+  key =  "photo.jpg"
+  source = "/root/photo.jpg"
+}
+```
+An example uploading a file to an S3 bucket
+
 ### Syntax - IAM
 
 ```hcl
