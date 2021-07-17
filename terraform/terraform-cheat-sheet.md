@@ -256,3 +256,9 @@ A data source can only be read from, while a resources is fully managed by Terra
 
 #### For Each Meta argument
 Iterates over either a map or a set. Can only iterate over these variable types
+
+#### State Locking
+While Terraform is updating configuration of a state, another update operation cannot run. This prevents state from running multiple times against the same configuration.
+
+#### Remote Backend
+A remote backend refers to storing the state of a terraform configuration on a remote file storage such as Amazon S3. When a remote backend is configured, terraform will reference and update it when doing operations. This prevents different operations from being run simultaneously.
