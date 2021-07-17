@@ -135,6 +135,14 @@ resource "aws_route_table_association" "a" {
 ```
 A resource to associate a subnet with a route table
 
+```hcl
+resource "aws_s3_bucket" "example_bucket" {
+  bucket = "an_example_bucket"
+  acl = "public-read-write"
+}
+```
+An S3 bucket
+
 ### Syntax - IAM
 
 ```hcl
