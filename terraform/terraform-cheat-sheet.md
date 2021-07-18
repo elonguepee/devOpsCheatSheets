@@ -230,6 +230,18 @@ resource "aws_iam_policy" "adminUser" {
 ```
 Example syntax for HEREDOC format to input a file inline.
 
+```hcl
+terraform {
+  backend "s3" {
+    key = "terraform.tfstate"
+    region = "us-east-1"
+    bucket = "remote-state"
+   
+  }
+}
+```
+Using remote-state
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
