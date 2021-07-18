@@ -196,6 +196,14 @@ terraform {
 ```
 Example syntax for requiring a provider
 
+```hcl
+resource "local_file" "file" {
+  filename = "/root ${var.filename}"
+  content = var.filecontent
+}
+```
+An example of using a variable inline
+
 ### Syntax - Intermediate
 ```hcl
 resource "aws_iam_policy" "adminUser" {
