@@ -94,7 +94,15 @@ terraform state rm <resource name>
 ```
 Used to remove a resource from the state so it is no longer managed. The resource is not destroyed, it is just no longer tracked by terraform
 
+```bash
+terraform taint <resource name>
+```
+Taints a specified resource
 
+```bash
+terraform untaint <resource name>
+```
+Untaints a specified resource
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {
@@ -298,3 +306,12 @@ While Terraform is updating configuration of a state, another update operation c
 
 #### Remote Backend
 A remote backend refers to storing the state of a terraform configuration on a remote file storage such as Amazon S3. When a remote backend is configured, terraform will reference and update it when doing operations. This prevents different operations from being run simultaneously.
+
+#### Provisioner Behavior
+By default a provisioner executes when a resource is created. This can be changed by adding arguments to provisioner blocks such as when = destroy to have the provisioner run when a resource is destroyed.
+
+#### Tainted Resources
+Tainted resources are resources that, for some reason are considered invalid and will be recreated by terraform next time a configuration is applied.
+
+#### Logging/debugging in terraform
+To see logs in terraform, you can set the TF_LOG environment variable. There are 5 levels of log for more or less information. To export the log to a specific file path, TF_LOG_PATH can be set.
