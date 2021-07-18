@@ -79,6 +79,22 @@ terraform graph
 ```
 Shows dependency graph
 
+```bash
+terraform state mv <source> <destination>
+```
+Can be used to move resources from one state file to another or to rename resources
+
+```bash
+terraform state pull
+```
+Used to pull the state down from a remote
+
+```bash
+terraform state rm <resource name>
+```
+Used to remove a resource from the state so it is no longer managed. The resource is not destroyed, it is just no longer tracked by terraform
+
+
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {

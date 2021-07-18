@@ -143,7 +143,7 @@ resource "aws_s3_bucket" "example_bucket" {
 ```
 An S3 bucket
 
-```
+```hcl
 resource "aws_s3_bucket_object" "upload" {
   bucket = aws_s3_bucket.example_bucket.id
   key =  "photo.jpg"
@@ -151,6 +151,22 @@ resource "aws_s3_bucket_object" "upload" {
 }
 ```
 An example uploading a file to an S3 bucket
+
+```hcl
+resource "aws_key_pair" "web" {
+  public_key = "root/.ssh/web.pub"
+}
+
+resource "aws_instance" "basic-ec2-server" {
+    ami           = "ami-0dc2d3e4c0f9ebd18"
+    instance_type = "t2.micro"
+
+    key_name = aws_key_pair.web.id
+    tags = {
+    #   Name = "Ubuntu"
+    }
+```
+An example of using a key pair and referencing it in an EC2 instance
 
 ### Syntax - IAM
 
