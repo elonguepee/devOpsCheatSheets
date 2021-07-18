@@ -103,6 +103,17 @@ Taints a specified resource
 terraform untaint <resource name>
 ```
 Untaints a specified resource
+
+```bash
+terraform import <resource type>.<resource_name> <unique identifier for resource>
+```
+Imports an existing resource into terraform state
+
+```bash
+terraform console
+```
+Opens the interactive terraform console. Loads state in the terraform directory by default. Can run functions here to see output
+
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {
@@ -266,6 +277,87 @@ terraform {
 ```
 Using remote-state
 
+### Functions
+
+#### Numeric Functions
+```hcl
+max(<set of numbers>)
+```
+returns highest from set of numbers
+
+```hcl
+min(<set of numbers>)
+```
+returns lowest from set of numbers
+
+```hcl
+min(var.numset...)
+```
+An example of using the expansion syntax to expand a set
+
+```hcl
+ceil(<number>)
+```
+Returns the closet whole number greater than the argument provided
+```hcl
+floor(<number>)
+```
+Returns the closet whole number less than the argument provided
+
+#### String Funtions
+```hcl
+split(<delimmitter>,<string>)
+```
+splits a string
+```hcl
+join(<delimmitter>,<string list>)
+```
+joins several strings together
+```hcl
+lower(<string>)
+```
+converts a string to all lower case
+```hcl
+upper(<string>)
+```
+converts a string to all upper case
+```hcl
+substr(<string>,<starting position inclusive>, <number of characters>)
+```
+Returns a substring 
+
+#### Collection Functions
+```hcl
+index(<collection>,<value to find>)
+```
+Returns a substring
+```hcl
+element(<collection>,<index>)
+```
+Finds the element at a certain index in a collection
+```hcl
+contains(<collection>,<value to find>)
+```
+Determines whether a collection contains a value
+
+#### Map Functions
+```hcl
+keys(<map>)
+```
+Returns a list of just the keys from a map
+```hcl
+values(<map>)
+```
+Returns a list of just the values from a map
+```hcl
+lookup(<map>, <key>)
+```
+Returns a value corresponding to a specific key
+```hcl
+lookup(<map>, <key>, <defaultvalue>)
+```
+Retruns a value for a specific key, but if value is not present, sets the default value
+
 ### Concepts
 #### Declarative programming
 Terraform coding is done declaratively. Instead of saying how to do create infrastructure, you specify what infrastructure you would like and terraform creates it.
@@ -315,3 +407,9 @@ Tainted resources are resources that, for some reason are considered invalid and
 
 #### Logging/debugging in terraform
 To see logs in terraform, you can set the TF_LOG environment variable. There are 5 levels of log for more or less information. To export the log to a specific file path, TF_LOG_PATH can be set.
+
+#### Modules
+A grouping of terraform files that can be referenced from other terraform files. This is used to make terraform code more re-usable
+
+#### Parent/Child Modules
+The directory where you run terraform commands from is considered the parent module
