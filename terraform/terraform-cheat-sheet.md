@@ -114,6 +114,16 @@ terraform console
 ```
 Opens the interactive terraform console. Loads state in the terraform directory by default. Can run functions here to see output
 
+```bash
+terraform workspace new <workspace Name>
+```
+Creates a new workspace and switches to it
+
+```bash
+terraform workspace select <workspace Name>
+```
+Switches to a different workspace
+
 ### Syntax - Basic
 ```hcl
 resource "<provider>_<resource_type>" "<name>" {
@@ -277,6 +287,11 @@ terraform {
 ```
 Using remote-state
 
+```hcl
+<condition> ? <true value> : <false_value> 
+```
+An if statement in terraform
+
 ### Functions
 
 #### Numeric Functions
@@ -352,7 +367,7 @@ Returns a list of just the values from a map
 ```hcl
 lookup(<map>, <key>)
 ```
-Returns a value corresponding to a specific key
+Returns a value corresponding to a specific key 
 ```hcl
 lookup(<map>, <key>, <defaultvalue>)
 ```
@@ -413,3 +428,6 @@ A grouping of terraform files that can be referenced from other terraform files.
 
 #### Parent/Child Modules
 The directory where you run terraform commands from is considered the parent module
+
+#### Workspaces
+For creating multiple states within the same directory
