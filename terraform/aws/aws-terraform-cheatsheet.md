@@ -164,9 +164,27 @@ resource "aws_instance" "basic-ec2-server" {
     key_name = aws_key_pair.web.id
     tags = {
     #   Name = "Ubuntu"
-    }
+}
 ```
 An example of using a key pair and referencing it in an EC2 instance
+
+```hcl
+data "aws_route53_zone" "primary" {
+  name = var.domain-name
+}
+
+resource "aws_route53_record" "subdomain" {
+  zone_id = data.aws_route53_zone.primary.zone_id
+  name    = "${var.subdomain}.${var.domain-name}"
+  type    = "A"
+  alias {
+    name = aws_s3_bucket.web.website_domain
+    zone_id = aws_s3_bucket.web.hosted_zone_id
+    evaluate_target_health = true
+  }
+}
+```
+Setting up an S3 static website Route 53 record
 
 ### Syntax - IAM
 

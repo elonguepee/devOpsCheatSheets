@@ -281,11 +281,11 @@ terraform {
     key = "terraform.tfstate"
     region = "us-east-1"
     bucket = "remote-state"
-   
+    dynamodb_table = "state-locking"
   }
 }
 ```
-Using remote-state
+Using remote-state with state locking with S3 and DynamoDb
 
 ```hcl
 <condition> ? <true value> : <false_value> 
