@@ -301,7 +301,25 @@ provider "aws" {
   alias = "west"
 }
 ```
-An example of using multiple providers with an alias. In this case, if a resource is allocated with aws_<resource_type>. To use the alias, you would do aws_west_<resource_type>
+An example of using multiple providers with an alias. In this case, if a resource is allocated with aws_<resource_type>. To use the alias, you would specify "provider = aws.west" in the resource block
+
+```hcl
+resource "aws_elastic_beanstalk_environment" "tfenvtest" {
+  name                = "tf-test-name"
+  application         = "${aws_elastic_beanstalk_application.tftest.name}"
+  solution_stack_name = "64bit Amazon Linux 2018.03 v2.11.4 running Go 1.12.6"
+
+  dynamic "setting" {
+    for_each = var.settings
+    content {
+      namespace = setting.value["namespace"]
+      name = setting.value["name"]
+      value = setting.value["value"]
+    }
+  }
+}
+```
+An example of a Dynamic block. Lets you do a for loop for nested blocks. Can do with a count too
 
 ### Functions
 
