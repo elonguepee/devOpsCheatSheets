@@ -292,6 +292,17 @@ Using remote-state with state locking with S3 and DynamoDb
 ```
 An if statement in terraform
 
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+provider "aws" {
+  region "us-west-1"
+  alias = "west"
+}
+```
+An example of using multiple providers with an alias. In this case, if a resource is allocated with aws_<resource_type>. To use the alias, you would do aws_west_<resource_type>
+
 ### Functions
 
 #### Numeric Functions
