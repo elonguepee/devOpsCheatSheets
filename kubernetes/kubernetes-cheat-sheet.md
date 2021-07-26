@@ -29,6 +29,21 @@ Lists nodes in cluster
 -o wide gives more information
 
 ```bash
+kubectl run <podname> --image=<image_name>
+```
+Creates a pod with a specific image
+
+```bash
 kubectl get po
 ```
-Lists pods
+Lists pods. Can also use 'get pods'
+
+```bash
+kubectl describe pod <podname>
+```
+Gives details of a specific pod
+
+```bash
+kubectl apply -f <config_filepath>
+```
+Creates a pod(or other object) using a config file
