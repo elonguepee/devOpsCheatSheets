@@ -31,7 +31,7 @@ A controller that monitors a pod or set of pods
 A newer replacement for replica controllers
 
 #### Replica Set vs Replication Controller
-In a replica set, the selector is required to be specified. Where in replica controller it is optional
+In a replica set, the selector is required to be specified. Where in replica controller it is optional. A replicaset will maintain the number of replicas in it. If new ones are created, they will be deleted by default and if there is not enough, they will be deleted.
 
 ### Commands - Basic
 ```bash
@@ -66,7 +66,7 @@ kubectl get replicationcontroller
 Shows all replication controllers
 
 ```bash
-kubectl get replicationcontroller
+kubectl get replicationsets
 ```
 Shows all replication controllers
 
@@ -74,3 +74,13 @@ Shows all replication controllers
 kubectl replace -f <config path>
 ```
 Replaces a config with a newer version
+
+```bash
+kubectl scale --replicas=6 replicaset myapp-replicaset
+```
+Scales the number of replicas in a set to a specified number
+
+```bash
+kubectl edit <object> <object name>
+```
+Opens a text editor to edit an object
