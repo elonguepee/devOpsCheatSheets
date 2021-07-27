@@ -30,6 +30,9 @@ A controller that monitors a pod or set of pods
 #### Replica Set
 A newer replacement for replica controllers
 
+#### Replica Set vs Replication Controller
+In a replica set, the selector is required to be specified. Where in replica controller it is optional
+
 ### Commands - Basic
 ```bash
 kubectl get nodes
@@ -56,3 +59,18 @@ Gives details of a specific pod
 kubectl apply -f <config_filepath>
 ```
 Creates a pod(or other object) using a config file
+
+```bash
+kubectl get replicationcontroller
+```
+Shows all replication controllers
+
+```bash
+kubectl get replicationcontroller
+```
+Shows all replication controllers
+
+```bash
+kubectl replace -f <config path>
+```
+Replaces a config with a newer version

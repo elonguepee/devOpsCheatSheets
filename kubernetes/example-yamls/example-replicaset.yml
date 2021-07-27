@@ -1,12 +1,12 @@
 # An example pod configuration file
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: ReplicaSet
 metadata: 
-  name: myapp-rc
+  name: myapp-replicaset
   # Labels can be set to any key-value pairs. Useful for filtering.
   labels: 
     app: myapp
-    tier: frontend
+    tier: front-end
 spec:
   template:
     metadata: 
@@ -14,9 +14,12 @@ spec:
       # Labels can be set to any key-value pairs. Useful for filtering.
       labels: 
         app: nginx
-        tier: frontend
+        type: front-end
     spec:
       containers:
         - name: nginx
           image: nginx
   replicas: 3
+  selector: 
+    matchLabels:
+      type: front-end
