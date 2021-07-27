@@ -33,7 +33,15 @@ A newer replacement for replica controllers
 #### Replica Set vs Replication Controller
 In a replica set, the selector is required to be specified. Where in replica controller it is optional. A replicaset will maintain the number of replicas in it. If new ones are created, they will be deleted by default and if there is not enough, they will be deleted.
 
+#### Deployments
+A deployment is a collection of other objects in the hierarchy, such as replicasets
+
 ### Commands - Basic
+```bash
+kubectl get all
+```
+Lists all objects in cluster
+
 ```bash
 kubectl get nodes
 ```
