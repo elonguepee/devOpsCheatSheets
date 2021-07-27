@@ -50,7 +50,7 @@ Runs apply and sets a variable via command line
 ```bash
 terraform apply -var-file "<filename>.tfvars"
 ```
-Runs apply and sets variables based on a specific var file
+Runs apply and sets varsudo chown -R elonguepee /usr/bin/codeiables based on a specific var file
 
 ```bash
 terraform output

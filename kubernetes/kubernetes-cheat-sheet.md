@@ -21,6 +21,15 @@ To scale up or down, additional pods are deployed. You do **not** add additional
 A pod represents a specific piece of an application or infrastructure. This means that often a pod encapsulates on container. However, this is not a requirement. Multiple containers can be in a pod, but they should be different types of containers. Multiple containers in a pod are linked and share many things, I.E. network, storage, fate (when a pod is destroyed, all the containers in it are destroyed).  
 Multi-pod containers are a **rare use case**
 
+#### Controllers
+Processes that monitor Kubernetes objects and respond accordingly
+
+#### Replication Controller
+A controller that monitors a pod or set of pods
+
+#### Replica Set
+A newer replacement for replica controllers
+
 ### Commands - Basic
 ```bash
 kubectl get nodes
