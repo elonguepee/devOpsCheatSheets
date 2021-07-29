@@ -36,6 +36,10 @@ In a replica set, the selector is required to be specified. Where in replica con
 #### Deployments
 A deployment is a collection of other objects in the hierarchy, such as replicasets
 
+#### Deployment Strategy
+Rolling update is the default deployment strategy, where replicas are taken down and replaced one by one.
+
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -92,3 +96,18 @@ Scales the number of replicas in a set to a specified number
 kubectl edit <object> <object name>
 ```
 Opens a text editor to edit an object
+
+```bash
+kubectl rollout status <deployment>
+```
+Check on the status of a deployment
+
+```bash
+kubectl rollout history <deployment>
+```
+Show the history of a rollout
+
+```bash
+kubectl rollout undo <deployment>
+```
+Undo a deployment
