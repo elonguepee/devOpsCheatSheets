@@ -39,6 +39,17 @@ A deployment is a collection of other objects in the hierarchy, such as replicas
 #### Deployment Strategy
 Rolling update is the default deployment strategy, where replicas are taken down and replaced one by one.
 
+#### Service
+A kubernetes object with different applications within kubernetes
+
+#### NodePort
+Service that makes a pod acessible on a port on the node
+
+#### Cluster Ip
+Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector
+
+#### Load Balancer
+Service that creates a load balancer
 
 ### Commands - Basic
 ```bash
@@ -111,3 +122,14 @@ Show the history of a rollout
 kubectl rollout undo <deployment>
 ```
 Undo a deployment
+
+```bash
+kubectl get svc
+```
+Get Services
+
+### Commands - Minikube
+```bash
+minikube service <service> --url
+```
+Gets the url for a service
