@@ -36,7 +36,31 @@ Lets you switch to a user whose password you don't know if you have sudo access
 #### Create, delete, copy, and move files and directories (Todo)
 #### Create hard and soft links (Todo)
 #### List, set, and change standard ugo/rwx permissions (Todo)
-#### Locate, read, and use system documentation including man, info, and files in /usr/share/doc (Todo)
+#### Locate, read, and use system documentation including man, info, and files in /usr/share/doc
+```bash
+man <command>
+```
+Brings up the manual pages for a command or service
+
+```bash
+info <command>
+```
+Brings up the info pages for command or service
+
+```bash
+whatis <command>
+```
+Returns the man page number and description of command
+
+```bash
+apropos <keyword>
+```
+Like whatis, but more info with keyword matches
+
+```bash
+ls -la /usr/share/doc | egrep -i "command"
+```
+Finds help documents related to a command in usr/share/doc
 
 ### Create simple shell scripts (Todo)
 #### Conditionally execute code (use of: if, test, [], etc.) (Todo)
