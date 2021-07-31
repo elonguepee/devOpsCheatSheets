@@ -8,7 +8,13 @@ This cheat sheet is organized by exam objectives and subobjectives. Each sub-obj
 ### Understand and use essential tools (Todo)
 #### Access a shell prompt and issue commands with correct syntax (Todo)
 #### Use input-output redirection (>, >>, |, 2>, etc.) (Todo)
+
+
+
 #### Use grep and regular expressions to analyze text (Todo)
+
+
+
 #### Access remote systems using SSH
 ```bash
 ssh user@remote command
@@ -33,7 +39,35 @@ Lets you switch to a user whose password you don't know if you have sudo access
 
 #### Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2 (Todo)
 #### Create and edit text files (Todo)
+
+
+
 #### Create, delete, copy, and move files and directories (Todo)
+```bash
+mkdir -p <directory_name>
+```
+Makes a directory. -p creates the parents as well
+
+```bash
+tree directory
+```
+Shows the directory structure of a directory Might need sudo for some restricted directories
+
+```bash
+2> /dev/null
+```
+Discards errors from a command
+
+```bash
+journalctl --unit=<service> --no-pager >> file
+``` 
+journalctl is a command for getting the log files collected from systemd. --no-pager prevents it from using a pager which is good for redirection
+
+```bash
+wc -l file
+```
+Counts the number of lines in a text file
+
 #### Create hard and soft links (Todo)
 #### List, set, and change standard ugo/rwx permissions (Todo)
 #### Locate, read, and use system documentation including man, info, and files in /usr/share/doc
