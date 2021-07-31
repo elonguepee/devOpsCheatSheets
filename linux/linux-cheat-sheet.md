@@ -18,7 +18,7 @@ Lists contents of a directory. Without specifying a directory, the default is th
 ls <dir>
 ```
 Lists contents of a directory. Without specifying a directory, the default is the current directory
-
+ebs
 ```bash
 df
 ```
