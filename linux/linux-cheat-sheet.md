@@ -22,6 +22,13 @@ Lists contents of a directory. Without specifying a directory, the default is th
 ```bash
 df
 ```
+shows mounted disks and their available space
+
+```bash
+du
+```
+shows the size of a give directory or subdirectory
+
 
 ```bash
 <command> ; <command>
