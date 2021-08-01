@@ -34,7 +34,56 @@ sudo su - user
 Lets you switch to a user whose password you don't know if you have sudo access
 
 #### Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2 (Todo)
-#### Create and edit text files (Todo)
+**Archiving vs. Compressing**
+Archiving is collecting multiple files together, compressing is reducing the size of a file.  
+tar and star are examples of common archiving utilities
+gzip and bzip2 and examples of compression utilities
+Archiving and compressing can be used together or seperately.
+
+```bash
+tar cvf <archivename> <files to be archived>
+```
+Creates an archive file from the file/directories specified. The three flags used are:
+- c create
+- v verbose. Give a lot of feedback
+- f file
+
+```bash
+star -cv file=<archivename> <file/directories to be archived>
+```
+The equivalent command with star
+
+```bash
+tar tvf <archive>
+```
+Lists the contents of an archive. The flag t is used to list the contents
+
+```bash
+star -cv file=<archiven>
+```
+The equivalent command with star
+
+```bash
+tar cvfz <archivename> <files to archive>
+```
+Uses the z flag to compress with gzip inline
+
+```bash
+star -cv -bz file=<archivename> <files to be archivied>
+```
+Creates an archive and compresses it with bzip2 using star
+
+```bash
+tar xvfj <archivename>
+```
+Decompresses and extracts an archive. The x flag is to extract, and the j flag is for bzip2.
+
+```bash
+bzip2 -d <filename>
+```
+Decompresses a file using the -d flag
+
+#### Create and edit text files
 
 ##### vi commands
 - dd deletes a line
@@ -44,7 +93,7 @@ Lets you switch to a user whose password you don't know if you have sudo access
 - :w saves. Adding a space and a name will save a copy with that name
 - O puts a line above, lowercase o puts a line below
 
-#### Create, delete, copy, and move files and directories (Todo)
+#### Create, delete, copy, and move files and directories
 ```bash
 mkdir -p <directory_name>
 ```
@@ -70,7 +119,23 @@ wc -l file
 ```
 Counts the number of lines in a text file
 
-#### Create hard and soft links (Todo)
+#### Create hard and soft links
+
+##### Hard link vs. Soft Link
+
+**Hard Link**
+A hard link is an additional name for a file  
+Can't be created for directories  
+Can't cross filesystem boundaries  
+Same inode number and permissions   
+
+**Soft Link**
+Special file that points to another file  
+Can be created for directories  
+Can cross filesystem boundaries and partitions  
+Different inode number and file permissions  
+Doesn't contain file data  
+
 #### List, set, and change standard ugo/rwx permissions (Todo)
 #### Locate, read, and use system documentation including man, info, and files in /usr/share/doc
 ```bash
