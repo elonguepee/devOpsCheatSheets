@@ -96,6 +96,19 @@ Decompresses a file using the -d flag
 - ~ changes the case of a character
 - A puts you into insert mode at the end of a line
 - ZZ saves and exits a file
+- gg takes you to the top of the file
+- G takes you to the bottom 
+- typing a number and then G will take you to that line number
+- a number plus % will take you to that percent of the file
+- w takes you forward through a file, word by word instead of character
+- b takes you back
+- a number then w will take you that manay words forward
+- search with /
+- n will take you to the next find in a search, and N will take you to the last
+- ? will search backwards. Using n will take you backwards and N will take you forwards
+- shift+6 takes you to the first non-blank character of a line
+- 0 takes you to the first character of a line even if it's a blank character
+
 
 #### Create, delete, copy, and move files and directories
 ```bash
