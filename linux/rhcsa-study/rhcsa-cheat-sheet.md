@@ -92,6 +92,10 @@ Decompresses a file using the -d flag
 - u to undo
 - :w saves. Adding a space and a name will save a copy with that name
 - O puts a line above, lowercase o puts a line below
+- c w deletes the rest of the word
+- ~ changes the case of a character
+- A puts you into insert mode at the end of a line
+- ZZ saves and exits a file
 
 #### Create, delete, copy, and move files and directories
 ```bash
@@ -240,6 +244,9 @@ mget used to get files
 - Switch to user you want to configure passwordless login for
 - Generate a ssh key with ssh-keygen
 - Use ssh-copy-id for user on the other server
+
+##### ssh-agent
+ssh-agent is a helper program that keeps track of your keys/logins. You can run ssh-add to add ssh-keys on the system to it. The use of this is so that if they have a passphrase, you won't have to enter it everytime you ssh in. Only when running the ssh-add command. This allows sso login even with a ssh-key file that has a passphrase
 
 #### Set enforcing and permissive modes for SELinux (Todo)
 #### List and identify SELinux file and process context (Todo)
