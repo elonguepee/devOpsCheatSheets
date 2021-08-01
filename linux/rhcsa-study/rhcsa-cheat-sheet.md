@@ -9,11 +9,7 @@ This cheat sheet is organized by exam objectives and subobjectives. Each sub-obj
 #### Access a shell prompt and issue commands with correct syntax (Todo)
 #### Use input-output redirection (>, >>, |, 2>, etc.) (Todo)
 
-
-
 #### Use grep and regular expressions to analyze text (Todo)
-
-
 
 #### Access remote systems using SSH
 ```bash
@@ -40,7 +36,13 @@ Lets you switch to a user whose password you don't know if you have sudo access
 #### Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2 (Todo)
 #### Create and edit text files (Todo)
 
-
+##### vi commands
+- dd deletes a line
+- x deletes a character. Can specify a number to delete a number of characters
+- r and then a character replaces a character
+- u to undo
+- :w saves. Adding a space and a name will save a copy with that name
+- O puts a line above, lowercase o puts a line below
 
 #### Create, delete, copy, and move files and directories (Todo)
 ```bash
