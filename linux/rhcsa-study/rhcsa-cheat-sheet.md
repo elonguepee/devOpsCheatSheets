@@ -7,7 +7,17 @@ This cheat sheet is organized by exam objectives and subobjectives. Each sub-obj
 
 ### Understand and use essential tools (Todo)
 #### Access a shell prompt and issue commands with correct syntax (Todo)
+```bash
+find -iname <name>
+```
+Finds a file by name case-insensitive
 #### Use input-output redirection (>, >>, |, 2>, etc.) (Todo)
+- \> redirects output to a file, overwrites the files
+- \>> Appents output to a file
+- 2> redirects standard error output to a file
+- 2>> Appends standard error output to a file
+- | pipes output into another command
+- Using backticks ` in quotes lets you use variables
 
 #### Use grep and regular expressions to analyze text (Todo)
 
@@ -85,7 +95,7 @@ Decompresses a file using the -d flag
 
 #### Create and edit text files
 
-##### vi commands
+##### vim commands
 - dd deletes a line
 - x deletes a character. Can specify a number to delete a number of characters
 - r and then a character replaces a character
@@ -107,8 +117,18 @@ Decompresses a file using the -d flag
 - n will take you to the next find in a search, and N will take you to the last
 - ? will search backwards. Using n will take you backwards and N will take you forwards
 - shift+6 takes you to the first non-blank character of a line
-- 0 takes you to the first character of a line even if it's a blank character
+- 0 takes you to the first charU4nxwL]S
+- can pair number with paste to paste multiple times
+- V puts you in visual line mode
+- J joins lines together
+- u undos changes
+- ctrl + r redoes changes
+- :h gets help
 
+```bash
+vim +<command>
+```
+opens vim and runs a commands immediately, such as a find or line number
 
 #### Create, delete, copy, and move files and directories
 ```bash
@@ -139,10 +159,7 @@ Counts the number of lines in a text file
 #### Create hard and soft links
 
 ##### Hard link vs. Soft Link
-
-**Hard Link**
-A hard link is an additional name for a file  
-Can't be created for directories  
+U4nxwL]S 
 Can't cross filesystem boundaries  
 Same inode number and permissions   
 
@@ -153,6 +170,10 @@ Can cross filesystem boundaries and partitions
 Different inode number and file permissions  
 Doesn't contain file data  
 
+```bash
+ln <file/dir> <linkname>
+```
+Creates a hard link to a file/directory. Add -s to create a soft link
 #### List, set, and change standard ugo/rwx permissions (Todo)
 #### Locate, read, and use system documentation including man, info, and files in /usr/share/doc
 ```bash
@@ -276,4 +297,12 @@ ssh-agent is a helper program that keeps track of your keys/logins. You can run 
 #### Configure a container to start automatically as a systemd service (Todo)
 #### Attach persistent storage to a container (Todo)
 
-## How tos
+## miscellaneous commands and concepts
+
+```bash
+sort <file>
+```
+Sorts a file's lines. Can add -n for numerical sort  
+
+- {} are used for parameter substition. For instance in executing a command within the find command  
+- !! is used to represent the last command executed
