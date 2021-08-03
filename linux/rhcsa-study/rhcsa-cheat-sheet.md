@@ -203,10 +203,12 @@ Finds help documents related to a command in usr/share/doc
 
 ### Create simple shell scripts (Todo)
 #### Conditionally execute code (use of: if, test, [], etc.) (Todo)
+test can be used to tests files. test -e checks if a file exists and test -d checks if a variable is a directory
 #### Use Looping constructs (for, etc.) to process file, command line input (Todo)
 #### Process script inputs ($1, $2, etc.) (Todo)
 #### Processing output of shell commands within a script (Todo)
 #### Processing shell command exit codes (Todo)
+$? Contains the exit code of the last run command
 
 ### Operate running systems (Todo)
 #### Boot, reboot, and shut down a system normally (Todo)
