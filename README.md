@@ -1,5 +1,5 @@
 # devOpsCheatSheets
-A repository for DevOps related cheat sheets, and resources. The cheatsheets in this file are meant to be brief references. Additionally, I use these to learn a technology and as a note-taking technique, so they can be a little disjointed and are not meant as complete projects by any means.
+Hello! My name is [Erik Longuepee](https://github.com/ecron11) and this is a repository for DevOps related cheat sheets, and resources. The cheatsheets in this file are meant to be brief references. Additionally, I use these as a note-taking method so they can often be a bit disjointed and are by no means meant as complete reference guides or anything of the sort.
 
 ## Tools:  
 
@@ -22,6 +22,7 @@ A repository for DevOps related cheat sheets, and resources. The cheatsheets in 
 
 ### Linux
 * [Cheatsheet](https://github.com/ecron11/devOpsCheatSheets/blob/main/git/linux-cheat-sheet.md)
+* [Red Hat Certified System Administrator](https://github.com/ecron11/devOpsCheatSheets/blob/main/linux/rhcsa-study/rhcsa-cheat-sheet.md)
 
 ### AWS
 * [Terraform with AWS CheatSheet](https://github.com/ecron11/devOpsCheatSheets/blob/main/terraform/aws/aws-terraform-cheatsheet.md)
