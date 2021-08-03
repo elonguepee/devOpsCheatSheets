@@ -212,8 +212,61 @@ $? Contains the exit code of the last run command
 
 ### Operate running systems (Todo)
 #### Boot, reboot, and shut down a system normally (Todo)
+
+
+
 #### Boot systems into different targets manually (Todo)
+##### Linux boot targets
+
+```bash
+systemctl get-default
+```
+Gets the current deault target
+
+```bash
+systemctl set-default <target>
+```
+Sets the default target
+
+```bash
+sudo systemctl reboot
+```
+reboots the system
+
+
+
 #### Interrupt the boot process in order to gain access to a system (Todo)
+To interrupt the boot process press e.  
+To boot into emergency mode, add rd.break in GRUB loader at end of linux line
+
+##### Changing root password you don't know
+1. Boot into emergency mode
+   1. To do this, reboot the system and press e to get into grub loader
+   2. Add rd.break in the line with linux in it. ctrl+e will get you to the end of the line
+   3. ctrl + x to Boot
+2. Remount /sysroot into readwrite
+   1. Run 'mount -o rw,remount /sysroot'
+3. change the root to /sysroot
+   1. chroot /sysroot
+4. Change the admin password with passwd root
+5. Force SElinux to relabel or else the system won't Boot
+   1. Just touch ./autorelabel
+6. Exit /sysroot
+7. Remount sysroot as readonly
+   1. mount -o ro,remount /sysroot
+8. exit and restart
+
+##### The boot process
+1. The server/VM is powered on and the BIOS loads and executes POST
+2. BIOS loads the contents of the MBR (Master boot record
+3. The Grub bootloader loads the kernel
+4. The kernel loads drivers and starts systemd
+5. systemd reads etc/systemd configuration files and default.target file
+6. system is brought to state as defined by default.target
+
+The GRUB bootloader let's you edit your boot options 
+
+
 #### Identify CPU/memory intensive processes and kill processes (Todo)
 #### Adjust process scheduling (Todo)
 #### Manage tuning profiles (Todo)
