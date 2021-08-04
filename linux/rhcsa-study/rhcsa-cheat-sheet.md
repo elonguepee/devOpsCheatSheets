@@ -271,7 +271,24 @@ The GRUB bootloader let's you edit your boot options
 #### Adjust process scheduling (Todo)
 #### Manage tuning profiles (Todo)
 #### Locate and interpret system log files and journals (Todo)
+##### Different log locations
+- /var/logs/ The old school location for system and application logs
+- journalctl is the utility to query the systemd journal
+- systemd-journald must be configured to log to disk to make sure that they persist across reboots
+
+```bash
+journalctl -u chronyd
+```
+Finds the journal for chronyd. -u stands for unit, which is how you specify your search  
+-g will let you do patern matching
 #### Preserve system journals (Todo)
+To make journals persistent you must edit the Storage setting in /etc/systemd/journald.conf or if it is set to auto, make the directory /var/log/journal  
+After creating the /var/log/journal directory, running a journalctl --flush  
+- By default, it is set to auto, which will log to /var/log/journal IF it exists already. If not it will log to /run/log/journal which is not persistent.
+- Volatile will log to run/log/journal,
+- Persistent will log to var/log/journal which is persistent.
+- None will just discard any logs it receives.
+
 #### Start, stop, and check the status of network services (Todo)
 #### Securely transfer files between systems
 
