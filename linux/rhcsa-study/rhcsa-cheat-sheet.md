@@ -268,7 +268,27 @@ The GRUB bootloader let's you edit your boot options
 
 
 #### Identify CPU/memory intensive processes and kill processes (Todo)
+```bash
+top
+```
+Showing CPU usage and other statistics of running processes
+
+```bash
+ps -ef
+```
+Shows running processes. -e is for all running processes and f lists them in long form
+
+##### Nice values
+Nice values are a priority that a process runs with. They range from -20 being the highest priority to 19 being the lowest.  
+To set a niceness value from the beginning, run the nice command:
+```bash
+nice -n 19 <command>
+```
+Can change the nice value with the renice command
+
 #### Adjust process scheduling (Todo)
+
+
 #### Manage tuning profiles (Todo)
 #### Locate and interpret system log files and journals (Todo)
 ##### Different log locations
