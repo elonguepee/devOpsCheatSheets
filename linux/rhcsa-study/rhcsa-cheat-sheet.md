@@ -278,6 +278,12 @@ ps -ef
 ```
 Shows running processes. -e is for all running processes and f lists them in long form
 
+#### Adjust process scheduling (Todo)
+```bash
+chrt -f -p <priority level> <process>  
+```
+let's you set the priority and scheduling algorithm for a process. -f is for fifo
+
 ##### Nice values
 Nice values are a priority that a process runs with. They range from -20 being the highest priority to 19 being the lowest.  
 To set a niceness value from the beginning, run the nice command:
@@ -285,9 +291,6 @@ To set a niceness value from the beginning, run the nice command:
 nice -n 19 <command>
 ```
 Can change the nice value with the renice command
-
-#### Adjust process scheduling (Todo)
-
 
 #### Manage tuning profiles (Todo)
 #### Locate and interpret system log files and journals (Todo)
