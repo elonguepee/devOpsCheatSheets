@@ -278,6 +278,16 @@ ps -ef
 ```
 Shows running processes. -e is for all running processes and f lists them in long form
 
+```bash
+pgrep <pattern>
+```
+Does a grep of running processes. A shortcut for ps and grep
+
+```bash
+pkill <process name>
+```
+Kills a process by name
+
 #### Adjust process scheduling (Todo)
 ```bash
 chrt -f -p <priority level> <process>  
@@ -293,6 +303,32 @@ nice -n 19 <command>
 Can change the nice value with the renice command
 
 #### Manage tuning profiles (Todo)
+##### Tuned
+Tuned is a utility to optomize system performance
+
+```bash
+tuned-adm active
+```
+Shows the active profile. tuned-adm is how you manage tuned.
+
+```bash
+tuned-adm profile <profile name>
+```
+Sets a profile
+
+```bash
+tuned-adm recommend
+```
+Recommeds a profile
+
+```bash
+tuned-adm profile <profile1> <profile2>
+```
+Will attempt to merge the 2 profiles  
+
+###### Dyanmic Tuning
+To enable dynamic tuning, must edit /etc/tuned/tuned-main.conf
+
 #### Locate and interpret system log files and journals (Todo)
 ##### Different log locations
 - /var/logs/ The old school location for system and application logs
