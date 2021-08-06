@@ -11,7 +11,7 @@ This cheat sheet is organized by exam objectives and subobjectives. Each sub-obj
 find -iname <name>
 ```
 Finds a file by name case-insensitive
-#### Use input-output redirection (>, >>, |, 2>, etc.) (Todo)
+#### Use input-output redirection (>, >>, |, 2>, etc.)
 - \> redirects output to a file, overwrites the files
 - \>> Appents output to a file
 - 2> redirects standard error output to a file
@@ -43,7 +43,7 @@ sudo su - user
 ```
 Lets you switch to a user whose password you don't know if you have sudo access
 
-#### Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2 (Todo)
+#### Archive, compress, unpack, and uncompress files using tar, star, gzip, and bzip2
 **Archiving vs. Compressing**
 Archiving is collecting multiple files together, compressing is reducing the size of a file.  
 tar and star are examples of common archiving utilities
@@ -128,7 +128,12 @@ Decompresses a file using the -d flag
 ```bash
 vim +<command>
 ```
-opens vim and runs a commands immediately, such as a find or line number
+opens vim and runs a commands immediately, such as a find
+
+```bash
+vim +<number>
+```
+Takes straight to a line
 
 #### Create, delete, copy, and move files and directories
 ```bash
@@ -437,3 +442,8 @@ Sorts a file's lines. Can add -n for numerical sort
 
 - {} are used for parameter substition. For instance in executing a command within the find command  
 - !! is used to represent the last command executed
+
+```bash
+screen
+```
+screen let's you create multiple screens in a terminal session
