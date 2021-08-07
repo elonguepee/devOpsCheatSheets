@@ -52,6 +52,17 @@ resource "aws_instance" "lab-server" {
   tags = {
     Name = "RHCSA Lab"
   }
+
+  ebs_block_device {
+    device_name = "/dev/sdb"
+    volume_size = 2
+    
+  }
+
+  ebs_block_device {
+    device_name = "/dev/sdc"
+    volume_size = 2
+  }
 }
 
 resource "aws_security_group" "allow-ssh" {
