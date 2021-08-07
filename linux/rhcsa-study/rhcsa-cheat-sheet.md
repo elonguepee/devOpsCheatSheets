@@ -369,10 +369,19 @@ mget used to get files
 
 ### Configure local storage (Todo)
 #### List, create, delete partitions on MBR and GPT disks (Todo)
+##### MBR vs. GPT
+MBR (Master Boot Record) is the older way used to partition tables, with limitations compared to GPT. These include a max of 4 primary partitions and a max partition size of 2 Terabytes. This is opposed to GPT (Globally Uinique Disk Identifier Partition Table) which can have up to 128 primary partitions with 2^33 terabytes maximum partition size.
+
+##### fdisk vs. gdisk
+fdisk is used only for MBR partition tables and gdisk is for GPT Partition tables.
+
 ```bash
 fdisk -l
 ```
-displays partitions
+displays partitions on all disks
+
+```bash
+gdis
 
 #### Create and remove physical volumes (Todo)
 #### Assign physical volumes to volume groups (Todo)
