@@ -381,7 +381,19 @@ fdisk -l
 displays partitions on all disks
 
 ```bash
-gdis
+gdisk <disk>
+```
+Opens the gdisk util on specified disk
+
+```bash
+mkfs.ext4 <partition>
+```
+Makes a ext4 filesystem on a partition
+
+```bash
+mount <partition/filesystem> <directory>
+```
+Mounts a filesystem/partition onto a directory.
 
 #### Create and remove physical volumes (Todo)
 #### Assign physical volumes to volume groups (Todo)
