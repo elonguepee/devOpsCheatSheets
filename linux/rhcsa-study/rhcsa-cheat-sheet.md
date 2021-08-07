@@ -386,6 +386,11 @@ gdisk <disk>
 Opens the gdisk util on specified disk
 
 ```bash
+fdisk <disk>
+```
+Opens fdisk util on specified disk
+
+```bash
 mkfs.ext4 <partition>
 ```
 Makes a ext4 filesystem on a partition
@@ -399,7 +404,30 @@ Mounts a filesystem/partition onto a directory.
 #### Assign physical volumes to volume groups (Todo)
 #### Create and delete logical volumes (Todo)
 #### Configure systems to mount file systems at boot by universally unique ID (UUID) or label (Todo)
-#### Add new partitions and logical volumes, and swap to a system non-destructively (Todo)
+#### Add new partitions and logical volumes, and swap to a system non-destructively
+##### Swap Space
+Swap space is space on a hard disk that is used basically as backup for memory. If a system has used all of it's memory, but needs more, it'll put less used parts of memory (chunks of memory are divided into pages) into swap space, freeing up some memory. The combination of swap space and RAM is called virtual memory.
+
+```bash
+swapon
+```
+shows how much swap space is configured  
+
+```bash
+mkswap -L <swap_label_name> <partition>
+```
+Adds a partition to swap space with a label
+
+```bash
+swapon <swap_partition>
+```
+Activates swap space
+
+##### Adding more swap space
+To Add more swap space:
+1. Create a partition with swap type
+2. Add partition to swap space with mkswap
+3. Activate new swapspace with swapon
 
 
 ### Create and configure file systems (Todo)
