@@ -369,11 +369,17 @@ mget used to get files
 
 ### Configure local storage (Todo)
 #### List, create, delete partitions on MBR and GPT disks (Todo)
+```bash
+fdisk -l
+```
+displays partitions
+
 #### Create and remove physical volumes (Todo)
 #### Assign physical volumes to volume groups (Todo)
 #### Create and delete logical volumes (Todo)
 #### Configure systems to mount file systems at boot by universally unique ID (UUID) or label (Todo)
 #### Add new partitions and logical volumes, and swap to a system non-destructively (Todo)
+
 
 ### Create and configure file systems (Todo)
 #### Create, mount, unmount, and use vfat, ext4, and xfs file systems (Todo)
