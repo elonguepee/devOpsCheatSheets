@@ -400,10 +400,90 @@ mount <partition/filesystem> <directory>
 ```
 Mounts a filesystem/partition onto a directory.
 
-#### Create and remove physical volumes (Todo)
+#### Create and remove physical volumes
+##### Logical Volume Management
+Logical Volume Managenment (LVM) is an alternative to the traditional method of partitioning and mounting filesystems. It is composed of 3 pieces:
+1. Physical Volumes: These are the building blocks of LVM. These are the partitions or disks that are used to make shared storage pools.
+2. Volume Groups: These are groups of physical Volumes. This creates a shared pool of storage that can be divided up into logical volumes.
+3. Logical Volumes: These are the filesystems that are inevitably created. They are allocated from Volume Groups and can be mounted to directories.
+
+```bash
+pvs
+```
+List physical volumes
+
+```bash
+pvcreate <disk_Or_partition>
+```
+Creates a physical volume from a disk or partition
+
 #### Assign physical volumes to volume groups (Todo)
+```bash
+vgs
+```
+List volume groups
+
+```bash
+vgcreate <vg_name> <physical_volume>
+```
+Creates a volume group with a physical volume
+
 #### Create and delete logical volumes (Todo)
-#### Configure systems to mount file systems at boot by universally unique ID (UUID) or label (Todo)
+```bash
+lvs
+```
+Shows Logical Volumes
+
+##### logical volume location
+Logical volumes are located in the /dev/mapper directory. Their names are <volume_group>-<logical_volume_name>
+
+#### Configure systems to mount file systems at boot by universally unique ID (UUID) or label
+##### Persistent Mounts
+Mounts that are configured to mount automatically, either at boot time or when a request to mount all filesystems is issued. This is important to ensure that systems are configured to survive routine processes such as reboot. 
+
+**Adding mounts to /etc/fstab ensures persistence. This is very important for the exam**  
+
+##### Persistent Unique Identifiers
+To add something to be mounted persistently, you need a unique identifier that doesn't change. There are 2 types of identifiers: File System Identifiers and Device Identifiers.
+
+###### File Systems Identifiers
+Identifies a file system on a block device. Options are File System UUID and File system label
+
+###### Device Identifiers
+Identifies a block device. Options are a WWID, partition UUID, and Device Serial Number
+
+```bash
+lsblk
+```
+Lists block devices/mounts
+
+```bash
+umount <directory>
+```
+Unmounts a filesystem from a directory
+
+```bash
+mount -a
+```
+Mounts everything in fstab
+
+```bash
+blkid
+```
+Lists the block Ids including UUID of the devices in the system
+
+##### Making a filesystem mount persistent
+To make a mount persistent follow thse steps:
+1. Get the UUID of the partition/filesystem with blkid
+2. Add the UUID with the directory to /etc/fstab
+3. Test with umount <directory> and mount -a
+
+##### Making a swap mount persistent
+Making a swap mount persistent is very similar to making a filesystem mount persistent. To make a swap mount persistent follow thse steps:
+1. Get the UUID of the partition/filesystem with blkid
+2. Add the UUID to /etc/fstab. Instead of a directory, write swap
+3. Test with swapon -a. This will mount anything in the /etc/fstab
+
 #### Add new partitions and logical volumes, and swap to a system non-destructively
 ##### Swap Space
 Swap space is space on a hard disk that is used basically as backup for memory. If a system has used all of it's memory, but needs more, it'll put less used parts of memory (chunks of memory are divided into pages) into swap space, freeing up some memory. The combination of swap space and RAM is called virtual memory.
