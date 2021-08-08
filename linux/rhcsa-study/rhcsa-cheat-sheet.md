@@ -510,8 +510,36 @@ To Add more swap space:
 3. Activate new swapspace with swapon
 
 
+##### Making a swap file
+1. Create a file, initializing it with null values from /dev/zero.
+2. Use swapon command on the file
+3. Change permissions to 600 as recommended by swapon command
+
 ### Create and configure file systems (Todo)
 #### Create, mount, unmount, and use vfat, ext4, and xfs file systems (Todo)
+##### Comparison of xfs, vfat, and ext4
+
+###### xfs
+- For very large files and file systems
+- Large systems running enterprise workloads
+- Parallel workloads
+- The default for RHEL8
+- Can grow file system online, but can't shrink
+- 1 PiB max
+
+###### ext4
+- For smaller file systems and files
+- For systems with limited io
+- For CPU-bound workloads
+- Latest version of ext
+- Can grow and shrink file system
+- Max size, 50 TiB
+
+###### vfat
+- Works with many operating systems
+- Great for sharing files across different operating systems
+- Supports windows long file names
+- Max size of 16 TiB
 #### Mount and unmount network file systems using NFS (Todo)
 #### Extend existing logical volumes (Todo)
 #### Create and configure set-GID directories for collaboration (Todo)
@@ -582,3 +610,6 @@ Sorts a file's lines. Can add -n for numerical sort
 screen
 ```
 screen let's you create multiple screens in a terminal session
+
+### /dev/zero
+/dev/zero provides a stream of null characters. Can be used to initialize an empty file
