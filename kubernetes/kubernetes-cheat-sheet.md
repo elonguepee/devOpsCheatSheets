@@ -59,7 +59,16 @@ A namespace is a group of kubernetes objects seperated from other namespaces. So
 
 A namespace can be specified for commands. Such as get pods, which by default only gets pods in the default namespace.  
 
-A namespace can also be specified in a YAML definition file
+A namespace can also be specified in definition fiels for kubernetes objects.  
+
+To set a resource quota for a namespace, create a ResourceQuota Object
+
+#### -o flag
+The -o flag can be added to any kubectl command to change the output format. The default is human-readable plain text format. There are 4 options:
+- json - json format
+- name - resource name and nothing else
+- wide - output in plain text with additional information
+- yaml output YAML formatted API object
 
 ### Commands - Basic
 ```bash
@@ -143,6 +152,11 @@ Get Services
 kubectl get pod <pod-name> -o yaml > pod-definition.yaml
 ```
 Outputs an existing pod's definition to a YAML file
+
+```bash
+kubectl config set-context ${kubectl config current-context} --namespace=dev
+```
+Changes the namespace
 
 ### Commands - Minikube
 ```bash
