@@ -51,6 +51,16 @@ Service that creates a virtual IP inside the cluster attached to a group of pods
 #### Load Balancer
 Service that creates a load balancer
 
+#### Namespaces
+A namespace is a group of kubernetes objects seperated from other namespaces. Some features of namespaces include: 
+- A namespace can have it's own resource limits.
+- A namespace can have it's own policies.
+- Objects in a namespace can reach other objects in the same namespace with just the name of the pod. Objects can also reach other namespaces by appending the name of the namespace
+
+A namespace can be specified for commands. Such as get pods, which by default only gets pods in the default namespace.  
+
+A namespace can also be specified in a YAML definition file
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -127,6 +137,12 @@ Undo a deployment
 kubectl get svc
 ```
 Get Services
+
+### Commands - Intermediate
+```bash
+kubectl get pod <pod-name> -o yaml > pod-definition.yaml
+```
+Outputs an existing pod's definition to a YAML file
 
 ### Commands - Minikube
 ```bash
