@@ -1,7 +1,16 @@
 # Git Cheat sheet
 ## A Cheat sheet for git commands and git related topics
 
+### Concepts
+#### Git commits
+Git doesn't store deltas or what changed in a commit, it stores a snapshot of the entire project. This allows git to quickly restore to an old version. This also means that the staging area does not just contain changed or deleted files, it stores the snapshot of commit of the project. As you add changes to it, it simply updates the files in the staging area.
+
 ### Commands - Basic
+```bash
+git config --global user.name <username>
+git config --global user.email <email>
+```
+Sets your username and email which will be reflected in commits
 
 ```bash
 git init
@@ -33,6 +42,21 @@ Pushes changes to a remote repository
 git pull
 ```
 Pulls and merges changes from a remote repository
+
+```bash
+git branch <branchname>
+```
+Creates a new branch with the name provided
+
+```bash 
+git branch
+```
+Lists branches
+
+```bash
+git checkout <branchname>
+```
+Checks out a branch
 
 ### Commands - Advanced
 ```bash
