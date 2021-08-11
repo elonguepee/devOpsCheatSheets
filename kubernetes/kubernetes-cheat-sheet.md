@@ -70,6 +70,9 @@ The -o flag can be added to any kubectl command to change the output format. The
 - wide - output in plain text with additional information
 - yaml output YAML formatted API object
 
+#### Arguments
+Arguments are added to an entrypoint (A initial command that is run when a container is created) when a container is created. To add arguments to the entrypoint in Kubernetes, the args key can be set to an array of arguments under the container in the pod-definition file.
+
 ### Commands - Basic
 ```bash
 kubectl get all
