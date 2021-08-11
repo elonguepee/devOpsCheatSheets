@@ -73,6 +73,12 @@ The -o flag can be added to any kubectl command to change the output format. The
 #### Arguments and Entry points
 Arguments are added to an entrypoint (A initial command that is run when a container is created) when a container is created. To add arguments to the entrypoint in Kubernetes, the args filed can be set to an array of arguments under the container in the pod-definition file. To overwrite the entry point, set the commmand field
 
+#### Environment Variables
+To set an environment variables in Kubernetes definition files, set env field to yaml array of name: value
+
+#### ConfigMaps
+A set of key value pairs to be used in pod definition files.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -160,6 +166,14 @@ Outputs an existing pod's definition to a YAML file
 kubectl config set-context ${kubectl config current-context} --namespace=dev
 ```
 Changes the namespace
+
+```bash
+kubectl create configmap <configmap-name> --from-literal=<ENV_VAR_NAME>=<ENV_VAR_VALUE>
+```
+Creates a config map imperatively, without a configmapfile
+
+```bash
+kubectl create configmap <configmap-name> --from-file=<path-to-file>
 
 ### Commands - Minikube
 ```bash

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: exampleConfigMap
+data:
+  EXAMPLE_VAR1: example_value1
+  EXAMPLE_VAR2: example_value2
