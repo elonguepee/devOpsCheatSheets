@@ -11,5 +11,6 @@ spec:
   containers:
     - name: nginx
       image: nginx
-      command: ["sleep"]
-      args: ["10"]
+      env: 
+        - name: APP_COLOR
+          value: orange
