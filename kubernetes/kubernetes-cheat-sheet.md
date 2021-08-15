@@ -103,6 +103,10 @@ Capabilities in the way docker containers use it can be added/removed at the con
 - By default kubernetes assumes that a container in a pod requires .5 cpu and 256 MiB of memory. This is called it's resource requests. A resource request is the minimum amount of a resource that is reserved for a container in a pod To change it, specifiy it under resources: requests in the container definition.  
 - By default, kubernetes sets a limit of  vCPU per container and 512 MiB of memory per container. This is the maximum amount of the resources that a container in a pod is allowed to use. This can be changed in the pod definition file with the limits key under resources. If a container tries to use more CPU than it's limit, it will be throttled. However, if a container tries to use more Memory, it can go over. If it goes over consistently, it will be terminated.
 
+#### User accounts and service accounts
+User Accounts are used by humans and service accounts are used by processes. When a service account is created, a token is created automatically. It is what must be used by the external service to communicate with the api. The token is stored in a secret object. If the service is an application deployed in the kubernetes cluster, it can be mounted as a volume onto the service. That way the token is already placed inside the pod and can be easily read by the application.  
+Whenever a pod is created, the default service account and it's token is automatically mounted onto the pod by default.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -215,6 +219,11 @@ Creates a secret imperatively
 kubectl exec -it  <pod> -- <command>
 ```
 Executes a command on a pod
+
+```bash
+kubectl create serviceaccount <serviceAccountName>
+```
+Creates a service account
 
 ### Commands - Minikube
 ```bash
