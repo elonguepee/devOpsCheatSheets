@@ -1,0 +1,17 @@
+# An example pod configuration file
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+  # Labels can be set to any key-value pairs. Useful for filtering.
+  labels: 
+    app: nginx
+    tier: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: 1

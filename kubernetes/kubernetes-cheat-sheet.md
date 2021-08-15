@@ -93,6 +93,16 @@ By default, all commands run on a container are run with the root user. If desir
 ##### Root User in docker containers
 By defualt, the root user does not have some capabilities, such as rebooting the host. These capabilities can be added with the --cap-add flag in docker run and dropped with --cap-drop flag. To add all priveleges use --privileged flag
 
+#### Security Contexts
+Let's you specify docker security concepts in the pod definition. Can set at either the pod level or the container level. Security Contexts at the container level will override security at the pod level.
+
+##### Capabilities
+Capabilities in the way docker containers use it can be added/removed at the container level only. With capabilities flag.
+
+#### Resource Requirements
+- By default kubernetes assumes that a container in a pod requires .5 cpu and 256 MiB of memory. This is called it's resource requests. A resource request is the minimum amount of a resource that is reserved for a container in a pod To change it, specifiy it under resources: requests in the container definition.  
+- By default, kubernetes sets a limit of  vCPU per container and 512 MiB of memory per container. This is the maximum amount of the resources that a container in a pod is allowed to use. This can be changed in the pod definition file with the limits key under resources. If a container tries to use more CPU than it's limit, it will be throttled. However, if a container tries to use more Memory, it can go over. If it goes over consistently, it will be terminated.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -200,6 +210,11 @@ returns a base64 encoded secret
 kubectl create secret generic <secretName> --from-literal=<Secret1Key>=<Secret1Value>
 ```
 Creates a secret imperatively
+
+```bash
+kubectl exec -it  <pod> -- <command>
+```
+Executes a command on a pod
 
 ### Commands - Minikube
 ```bash

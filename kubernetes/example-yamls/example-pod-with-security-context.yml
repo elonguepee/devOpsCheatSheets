@@ -1,0 +1,22 @@
+# An example pod configuration file
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+  # Labels can be set to any key-value pairs. Useful for filtering.
+  labels: 
+    app: nginx
+    tier: frontend
+spec:
+  # Security context at the pod level. Will apply to all containers that don't override it
+  securityContext:
+    runAsUser: 1000
+
+  containers:
+    - name: nginx
+      image: nginx
+      # Security context at the container level. Will override pod-level security
+      securityContext:
+        runAsUser: 1001
+        capabilities:
+          add: ["MAC_ADMIN"]
