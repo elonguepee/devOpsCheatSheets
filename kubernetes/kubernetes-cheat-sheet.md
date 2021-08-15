@@ -80,7 +80,18 @@ To set an environment variables in Kubernetes definition files, set env field to
 A set of key value pairs to be used in pod definition files.
 
 #### Secrets
-Like a configmap, but stored in a hash
+Like a configmap, but stored in a hash. When creating a secret definition file, you must specify the secrets in base 64 encoded format. To get this on a linux host use command echo -n <stringToEncode> | base64
+
+#### Docker Security
+
+##### Process Isolation
+Within a container, only the processes on the container itself (AKA within it's own namespace) are visible. On the docker host (The machine running docker that all the containers sit on top of), all processes in child containers/namespaces are visible
+
+##### Users
+By default, all commands run on a container are run with the root user. If desired, the user can be specified
+
+##### Root User in docker containers
+By defualt, the root user does not have some capabilities, such as rebooting the host. These capabilities can be added with the --cap-add flag in docker run and dropped with --cap-drop flag. To add all priveleges use --privileged flag
 
 ### Commands - Basic
 ```bash
@@ -184,6 +195,11 @@ Creates a configmap from a file
 echo -n <valueToEncode> | base64
 ```
 returns a base64 encoded secret
+
+```bash
+kubectl create secret generic <secretName> --from-literal=<Secret1Key>=<Secret1Value>
+```
+Creates a secret imperatively
 
 ### Commands - Minikube
 ```bash
