@@ -79,6 +79,9 @@ To set an environment variables in Kubernetes definition files, set env field to
 #### ConfigMaps
 A set of key value pairs to be used in pod definition files.
 
+#### Secrets
+Like a configmap, but stored in a hash
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -174,6 +177,13 @@ Creates a config map imperatively, without a configmapfile
 
 ```bash
 kubectl create configmap <configmap-name> --from-file=<path-to-file>
+```
+Creates a configmap from a file
+
+```bash
+echo -n <valueToEncode> | base64
+```
+returns a base64 encoded secret
 
 ### Commands - Minikube
 ```bash
