@@ -116,6 +116,13 @@ A taint effect determines what happens to a pod that does not tolerate the taint
 - PreferNoSchedule: System will try to not scheudle a pod on the node
 - NoExecute: New pods that do not tolerate the taint will not be scheduled AND existing pods that do not tolerate the taint will be evicted.
 
+
+#### Node Selectors
+Node Selectors let you specify what nodes to deploy a pod to based on node labels. It is a very simple and relatively limited way to specify nodes in kubernetes. You cannot do complex rules like or or not. For more complex rules, node affinity would be required
+
+#### Node Affinity
+Node Affinity allows you to specify what node(s) you want your containers to deploy on.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -238,6 +245,9 @@ Creates a service account
 kubectl taint nodes <node-name> <key>=<value>:<taint-effect>
 ```
 Sets the taint on a node.
+
+```bash
+kubectl label nodes <node-name> <label-key>=<label-value>
 
 ### Commands - Minikube
 ```bash
