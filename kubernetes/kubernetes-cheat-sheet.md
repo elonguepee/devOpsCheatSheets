@@ -107,6 +107,15 @@ Capabilities in the way docker containers use it can be added/removed at the con
 User Accounts are used by humans and service accounts are used by processes. When a service account is created, a token is created automatically. It is what must be used by the external service to communicate with the api. The token is stored in a secret object. If the service is an application deployed in the kubernetes cluster, it can be mounted as a volume onto the service. That way the token is already placed inside the pod and can be easily read by the application.  
 Whenever a pod is created, the default service account and it's token is automatically mounted onto the pod by default.
 
+#### Taints and Tolerations
+A taint prevents pods that do not have a matching toleration from deploying to that node. Ex. A node has the "blue" taint. Only pods that have the "blue" toleration can deploy to it. Taints and tolerations do not tell a pod where to go. It simply says that only pods with a certain toleration can be deployed there. A pod could be deployed anywhere it is tolerated. Node affinity is used to specify where a pod should be deployed
+
+##### Taint Effects
+A taint effect determines what happens to a pod that does not tolerate the taint. There are 3 types:
+- NoSchedule: The pod will not be scheduled on the node
+- PreferNoSchedule: System will try to not scheudle a pod on the node
+- NoExecute: New pods that do not tolerate the taint will not be scheduled AND existing pods that do not tolerate the taint will be evicted.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -168,7 +177,7 @@ Opens a text editor to edit an object
 kubectl rollout status <deployment>
 ```
 Check on the status of a deployment
-
+web-dashboard
 ```bash
 kubectl rollout history <deployment>
 ```
@@ -224,6 +233,11 @@ Executes a command on a pod
 kubectl create serviceaccount <serviceAccountName>
 ```
 Creates a service account
+
+```bash
+kubectl taint nodes <node-name> <key>=<value>:<taint-effect>
+```
+Sets the taint on a node.
 
 ### Commands - Minikube
 ```bash
