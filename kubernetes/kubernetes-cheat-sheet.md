@@ -125,6 +125,27 @@ Node Affinity allows you to specify what node(s) you want your containers to dep
 - requiredDuringSchedulingIgnoredDuringExecution: If a pod cannot be placed on a node with the correct label, it will not be placed
 - preferredDuringSchedulingIgnoredDuringExecution: If a pod cannot be placed on a node with the correct label, it will ignore affinity rules
 
+#### Pod lifecyle
+States of a pod:
+- Pending: When the scheduler is attempting to figure out where to put a pod
+- ContainerCreating: A pod has been scheduled on a node, images are pulled and the container starts
+- Running: The pod is running
+
+Pod Conditions are an array of true/false values that describe the status of a pod. They are:
+- PodScheduled
+- Initialized
+- ContainersReady
+- Ready
+
+##### Readiness
+By default, Kubernetes assumes that a pod is ready once it's containers have been created. This could be an issue if the application inside of it isn't actually ready. Kubernetes will send traffic to it, even if it is not ready to accept it.
+
+#### Readiness Probe
+A readiness probe is a custom test for when a pod is ready to accept traffic. Kubernetes will only forward traffic once this test is passed positively. This probe can take the form of an HTTP GET request, a check for whether a port is listening, or execution of a custom script on the container.
+
+#### Liveness Probe
+A liveness probe, is a test that is sent to a container periodically to determine if it healthy. If a container is considered to be unhealthy, it is destroyed and recreated. Liveness probes are configured in the same way readiness probes are.
+
 ### Commands - Basic
 ```bash
 kubectl get all
