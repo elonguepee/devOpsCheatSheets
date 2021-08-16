@@ -1,0 +1,18 @@
+# An example pod configuration file
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mongodb
+  # Labels can be set to any key-value pairs. Useful for filtering.
+  labels: 
+    app: mongodb
+    tier: database
+spec:
+  containers:
+    - name: mongodb
+      image: mongodb
+      ports:
+        - containerPort: 3306
+      readinessProbe:
+        tcpSocket:
+          port: 3306

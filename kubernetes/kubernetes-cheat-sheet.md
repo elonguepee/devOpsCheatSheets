@@ -121,7 +121,9 @@ A taint effect determines what happens to a pod that does not tolerate the taint
 Node Selectors let you specify what nodes to deploy a pod to based on node labels. It is a very simple and relatively limited way to specify nodes in kubernetes. You cannot do complex rules like or or not. For more complex rules, node affinity would be required
 
 #### Node Affinity
-Node Affinity allows you to specify what node(s) you want your containers to deploy on.
+Node Affinity allows you to specify what node(s) you want your containers to deploy on. It allows more complex rules like exists, in, notIn, etc. There are currently 2 types of affinity available:
+- requiredDuringSchedulingIgnoredDuringExecution: If a pod cannot be placed on a node with the correct label, it will not be placed
+- preferredDuringSchedulingIgnoredDuringExecution: If a pod cannot be placed on a node with the correct label, it will ignore affinity rules
 
 ### Commands - Basic
 ```bash

@@ -1,0 +1,23 @@
+# An example pod configuration file
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: nginx
+  # Labels can be set to any key-value pairs. Useful for filtering.
+  labels: 
+    app: nginx
+    tier: frontend
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 8080
+      readinessProbe:
+        httpGet:
+          path: /api/ready
+          port: 8080
+        initialDelaySeconds: 10 # An initial wait time before checking for readiness
+        periodSeconds: 5 # how often a check will be sent
+        failureThreshold: 8 # how many times an attempt to check readiness will be made before container is considered in a failure state. Default is 3
+        
