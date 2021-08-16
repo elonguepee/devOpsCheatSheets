@@ -271,6 +271,23 @@ Sets the taint on a node.
 
 ```bash
 kubectl label nodes <node-name> <label-key>=<label-value>
+```
+Sets the labels on a node
+
+```bash
+kubectl logs <pod-name>
+```
+Shows the logs on a pod. User -f flag to show logs live. If the pod has multiple containers, you must also specify the name of the container to see the logs
+
+```bash
+kubectl top node
+```
+If metric server is enabled, shows resoure utilization on nodes
+
+```bash
+kubectl top pod
+```
+If metric server is enabled, shows resoure utilization on pods
 
 ### Commands - Minikube
 ```bash
