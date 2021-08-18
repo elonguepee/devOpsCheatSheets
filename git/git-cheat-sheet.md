@@ -17,7 +17,6 @@ git init
 ```
 Initializes a git repo in current directory
 
-
 ```bash
 git status
 ```
@@ -57,6 +56,11 @@ Lists branches
 git checkout <branchname>
 ```
 Checks out a branch
+
+```bash
+git revert <commit>
+```
+Reverts a specific commit
 
 ### Commands - Advanced
 ```bash
