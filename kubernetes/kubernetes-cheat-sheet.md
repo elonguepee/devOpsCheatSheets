@@ -146,6 +146,9 @@ A readiness probe is a custom test for when a pod is ready to accept traffic. Ku
 #### Liveness Probe
 A liveness probe, is a test that is sent to a container periodically to determine if it healthy. If a container is considered to be unhealthy, it is destroyed and recreated. Liveness probes are configured in the same way readiness probes are.
 
+#### Labels
+Labels in kubernetes are just key-value pairs that can be defined. They can be used to filter views, selected from Deployment groups, etc. Using the -l flag on kubectl get <object> command let's you view object types with the label specified.
+
 ### Commands - Basic
 ```bash
 kubectl get all
