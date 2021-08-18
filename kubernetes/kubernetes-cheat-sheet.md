@@ -149,6 +149,10 @@ A liveness probe, is a test that is sent to a container periodically to determin
 #### Labels
 Labels in kubernetes are just key-value pairs that can be defined. They can be used to filter views, selected from Deployment groups, etc. Using the -l flag on kubectl get <object> command let's you view object types with the label specified.
 
+#### Jobs
+The default behavior of a pod in kubernetes is to attempt to keep a container running, something like a web-server, or database. If a container exits, kubernetes will try to bring it back up repeatedly until the failure threshold has been met. This behavior is controlled by the restartPolicy key in the kubernetes definition file. To create multiple pods that run a task to completion, kubernetes jobs come in. They are like replicasets for pods that don't need to run indefinitely.  
+A job will attempt to create the number of completions specified until it has had the same number of successes. The number of pods running at the same time can be set with the parallelism key.
+
 ### Commands - Basic
 ```bash
 kubectl get all
@@ -212,7 +216,7 @@ kubectl rollout status <deployment>
 Check on the status of a deployment
 web-dashboard
 ```bash
-kubectl rollout history <deployment>
+kubectl rollout history deployment/<deploymentName>
 ```
 Show the history of a rollout
 

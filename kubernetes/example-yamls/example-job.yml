@@ -1,0 +1,18 @@
+# An example pod configuration file
+apiVersion: batch/v1
+kind: Job
+metadata: 
+  name: example-job
+  # Labels can be set to any key-value pairs. Useful for filtering.
+spec:
+  # completions are the number of pods to be run
+  completions: 3
+  # parallelism determines the number of pods that can be run at the same time.
+  parallelism: 3
+  template:
+    spec:
+      containers:
+        - name: math-add
+          image: ubuntu
+          command: ['expr', '3','+','2']
+        restartPolicy: Never
