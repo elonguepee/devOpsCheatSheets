@@ -11,8 +11,8 @@ spec:
   ingress:
     - from:
       - podSelector:
-        matchLabels:
-          name: api-pod
+          matchLabels:
+            name: api-pod
         ports:
           - protocol: TCP
             port: 3306
