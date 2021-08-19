@@ -40,13 +40,14 @@ A deployment is a collection of other objects in the hierarchy, such as replicas
 Rolling update is the default deployment strategy, where replicas are taken down and replaced one by one.
 
 #### Service
-A kubernetes object with different applications within kubernetes
+A kubernetes object for connecting different parts of the kubernetes infrastructure together. A service functions like a server with a very specifc function in kubernetes with it's own internal ip address.
 
 #### NodePort
-Service that makes a pod acessible on a port on the node
+A node in kubernetes has it's own network. If you were to ssh into the node, you could access the pods Ip addresses. However, these are internal to the node, and by default are inaccessible to external requests. A **nodeport**, can translate a port on the **node** to an node-internal ip address attached to a **pod**.  
+A NodePort can be used for multiple pods. In this case, it will randomly distribute the load across the mulitple pods like a built-in load balancer. If the pods are in multiple nodes, the service will span all of them. In this case you can access the nodes from the NodePort using any ip that the NodePort spans alond with the port specified.
 
 #### Cluster Ip
-Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector
+Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector. Provides a single, consistent endpoint that can be used to represent a service
 
 #### Load Balancer
 Service that creates a load balancer
@@ -152,6 +153,7 @@ Labels in kubernetes are just key-value pairs that can be defined. They can be u
 #### Jobs
 The default behavior of a pod in kubernetes is to attempt to keep a container running, something like a web-server, or database. If a container exits, kubernetes will try to bring it back up repeatedly until the failure threshold has been met. This behavior is controlled by the restartPolicy key in the kubernetes definition file. To create multiple pods that run a task to completion, kubernetes jobs come in. They are like replicasets for pods that don't need to run indefinitely.  
 A job will attempt to create the number of completions specified until it has had the same number of successes. The number of pods running at the same time can be set with the parallelism key.
+
 
 ### Commands - Basic
 ```bash
