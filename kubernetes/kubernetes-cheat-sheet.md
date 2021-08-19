@@ -47,7 +47,10 @@ A node in kubernetes has it's own network. If you were to ssh into the node, you
 A NodePort can be used for multiple pods. In this case, it will randomly distribute the load across the mulitple pods like a built-in load balancer. If the pods are in multiple nodes, the service will span all of them. In this case you can access the nodes from the NodePort using any ip that the NodePort spans alond with the port specified.
 
 #### Cluster Ip
-Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector. Provides a single, consistent endpoint that can be used to represent a service
+Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector. Provides a single, consistent endpoint that can be used to represent a service.
+
+#### Network Policy
+By default in Kubernetes, all kubernetes objects are able to interact with any other objects in the cluster with an allow all rule. A network policy is a kubernetes object that can be attached to pods in kubernetes that dictates what can be allowed into and out of an object
 
 #### Load Balancer
 Service that creates a load balancer
