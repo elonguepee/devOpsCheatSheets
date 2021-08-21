@@ -311,6 +311,18 @@ kubectl create ingress <ingress-name> --rule="host/path=service:port"
 ```
 Creates an ingress imperatively
 
+### Kubectl Object shortcuts
+Shortcut | Object Name
+---------|------------
+po | Pods
+rs | ReplicaSets
+deploy | Deployments
+svc | Services
+ns | NameSpaces
+netpol | Network Policies
+pv | Persistent Volumes
+pvc | PersistentVolumeChains
+sa | Service Accounts
 ### Commands - Minikube
 ```bash
 minikube service <service> --url
