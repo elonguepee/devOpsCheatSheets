@@ -50,7 +50,10 @@ A NodePort can be used for multiple pods. In this case, it will randomly distrib
 Service that creates a virtual IP inside the cluster attached to a group of pods based on a selector. Provides a single, consistent endpoint that can be used to represent a service.
 
 #### Network Policy
-By default in Kubernetes, all kubernetes objects are able to interact with any other objects in the cluster with an allow all rule. A network policy is a kubernetes object that can be attached to pods in kubernetes that dictates what can be allowed into and out of an object
+By default in Kubernetes, all kubernetes objects are able to interact with any other objects in the cluster with an allow all rule. A network policy is a kubernetes object that can be attached to pods in kubernetes that dictates what can be allowed into and out of an object.
+
+#### Pod Selector
+To use AND logic in pod selectors, use a dictionary in the YAML file. Rules included under a dash will be treated as a AND. Separate rules with their own dash are treated as an or.
 
 #### Load Balancer
 Service that creates a load balancer
@@ -157,6 +160,8 @@ Labels in kubernetes are just key-value pairs that can be defined. They can be u
 The default behavior of a pod in kubernetes is to attempt to keep a container running, something like a web-server, or database. If a container exits, kubernetes will try to bring it back up repeatedly until the failure threshold has been met. This behavior is controlled by the restartPolicy key in the kubernetes definition file. To create multiple pods that run a task to completion, kubernetes jobs come in. They are like replicasets for pods that don't need to run indefinitely.  
 A job will attempt to create the number of completions specified until it has had the same number of successes. The number of pods running at the same time can be set with the parallelism key.
 
+#### Ingress
+Like a layer 7 load balancer that is built into the kubernetes cluster. An Ingress controller is a reverse proxy that can forward requests to the right pods, cluster IPs, etc from outside the cluster. Also need a NodePort Service to expose the Nginx service to the external web
 
 ### Commands - Basic
 ```bash
@@ -300,6 +305,11 @@ If metric server is enabled, shows resoure utilization on nodes
 kubectl top pod
 ```
 If metric server is enabled, shows resoure utilization on pods
+
+```bash
+kubectl create ingress <ingress-name> --rule="host/path=service:port"
+```
+Creates an ingress imperatively
 
 ### Commands - Minikube
 ```bash

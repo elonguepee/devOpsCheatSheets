@@ -10,7 +10,6 @@ metadata:
 spec:
   template:
     metadata: 
-      name: nginx
       # Labels can be set to any key-value pairs. Useful for filtering.
       labels: 
         app: nginx

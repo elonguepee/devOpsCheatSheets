@@ -1,0 +1,37 @@
+# An example pod configuration file
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  name: nginx-ingress-controller
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      name: nginx-ingress
+  template:
+    metadata: 
+      # Labels can be set to any key-value pairs. Useful for filtering.
+      labels: 
+        name: nginx-ingress
+    spec:
+      containers:
+        - name: nginx
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.21.0
+      args:
+        - /nginx-ingress-controller
+        - --configmap=${POD_NAMESPACE}/nginx-configuration # A config map for configuration details in nginx
+      env: # Required environment variables 
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      ports:
+        - name: http
+          containerPort: 80
+        - name: https
+          containerPort: 443
+        
