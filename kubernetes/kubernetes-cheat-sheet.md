@@ -163,6 +163,15 @@ A job will attempt to create the number of completions specified until it has ha
 #### Ingress
 Like a layer 7 load balancer that is built into the kubernetes cluster. An Ingress controller is a reverse proxy that can forward requests to the right pods, cluster IPs, etc from outside the cluster. Also need a NodePort Service to expose the Nginx service to the external web
 
+#### Volumes
+Volumes can be defined and mounted to pods for data that needs to persisent. hostPath defines a directory on the host node. Not good for multi-node clusters because nodes will have different things at the defined directories. <br/>
+There are several other different types of volume types that can be defined, such as NFS, AWS EBS, etc.
+
+#### Persistent Volumes
+A cluster wide pool of volumes used by resources across the cluster. This is advantageous over volumes at the pod level because you can more centrally manage your volumes. If there is a change to the volumes that are defined at the pod level, every pod definition must be changed, however with a persistent volume, any changes to the volume is done in the volume object.
+
+#### Persistent Volume Claims
+A Persistent Volume Claim is a request to bind to a persistent volume. There is a one-one relationship between persistent volumes and persistent volume claims
 ### Commands - Basic
 ```bash
 kubectl get all
