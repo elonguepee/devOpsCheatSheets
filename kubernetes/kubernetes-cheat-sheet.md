@@ -1,5 +1,5 @@
-#  Cheat sheet
-## A Cheat sheet for kubernetes kubernetes and terraform related topics
+#  Kubernetes Cheat sheet
+## A Cheat sheet for kubernetes and Kubernetes related topics
 
 ### Concepts - Basic
 #### Node
@@ -171,7 +171,20 @@ There are several other different types of volume types that can be defined, suc
 A cluster wide pool of volumes used by resources across the cluster. This is advantageous over volumes at the pod level because you can more centrally manage your volumes. If there is a change to the volumes that are defined at the pod level, every pod definition must be changed, however with a persistent volume, any changes to the volume is done in the volume object.
 
 #### Persistent Volume Claims
-A Persistent Volume Claim is a request to bind to a persistent volume. There is a one-one relationship between persistent volumes and persistent volume claims
+A Persistent Volume Claim is a request to bind to a persistent volume. There is a one-one relationship between persistent volumes and persistent volume claims. By default, once a persistent volume claim has been deleted, the persistent volume it was attached to is retained. This means that it stays, but cannot be re-used by other volume claims. The other options are delete, which deletes the volume when it is used, and recycle which clears out the persistent volume and re-uses it.
+
+#### Storage Classes
+A storage class let's you define a type of storage that can be referenced in a persistent volume claim. This will automatically create a persistent volume of the requested size from the type of resource (such as an EBS volume in AWS) specified in the storage class object.
+
+#### Stateful Sets
+Deploy a group of pods like deployments, but with some differences:
+- They deploy pods sequentially instead of simultaneously
+- The pods have definitive names, not randomized ones like in deployments. The names are the name of the stateful set and the index of the pod. name-0, name-1, etc. 
+- Even if a pod fails, and is recreated, it will come up with the same name.
+
+#### Headless Services
+Like a ClusterIP service, but instead of load-balancing, gives a DNS address to each pod in a service. With a normal service, you can access the IP adress/DNS name for the service and it will be sent to a random pod under it, a headless service will let you adress each specific pod, even if they fail and are recreated. This can be useful for things like mySQL databases that have read and write pods.
+
 ### Commands - Basic
 ```bash
 kubectl get all

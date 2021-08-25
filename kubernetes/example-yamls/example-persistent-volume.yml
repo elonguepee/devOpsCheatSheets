@@ -8,4 +8,4 @@ spec:
   capacity:
     storage: 1Gi
   hostPath:
-    path: /tmp/dat  
+    path: /tmp/dat
