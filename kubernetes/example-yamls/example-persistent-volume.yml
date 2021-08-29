@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: pv-voll
 spec:
-  accessMode: 
+  accessModes: 
     - ReadWriteOnce
   capacity:
     storage: 1Gi
