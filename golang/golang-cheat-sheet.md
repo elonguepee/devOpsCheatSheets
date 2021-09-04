@@ -24,3 +24,10 @@ for _, stringVal :=  range strings {
 }
 ```
 A for loop that iterates over each value in an array. The _ character is there to take the place of the index, which is unused in this case.
+
+```go
+type <structName> struct {
+    <var1Name> <var1Type>
+}
+```
+A struct in go
