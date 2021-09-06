@@ -31,3 +31,15 @@ type <structName> struct {
 }
 ```
 A struct in go
+
+### Commands/tools
+
+```go
+gofmt
+```
+A formatting tool for go code. Lot's of options
+
+### Concepts
+
+#### Exported names
+A name is exported if it starts with a capital. When importing a package, you can only refer to it's exported names. Anything starting with a lower capital letter will be unexported.
