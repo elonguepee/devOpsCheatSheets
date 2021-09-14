@@ -76,8 +76,31 @@ Agents should be fungible (AKA replaceable). This means that local configuration
 ### Plugins
 Extensions to Jenkins that extends it's functionality.
 
-### PLugin Manager
+### Plugin Manager
 Allows you to add, remove, disable, or enable plugins. Also provides information about a plugin such as version conflicts and isses that may arise from an update or installation.
 
 ### Jenkins API
 A REST API for programmatically interacting with the Jenkins Server.
+
+### Matrix Security
+Provides ability to configure security based on different sections or contexts. Can be Global based or project based.
+
+### Security Inheritance Options
+- Inherit from Parent: for projects that are in a folder or the child of another object. Inherits the security of the parent object.
+- Inherit Globally-defined Permissions: For projects that are in a folder or are the child of another object, but only want global permissions, **not** parent permissions
+- Do Not inherit permission grants from other ACLs: Prevents job from inheriting any permissions from blobal or parent items. Only exmplicitly defined permissions are allowed.
+
+### Auditing
+The process of verifying that the access permissions are working as intended.
+
+### Explicit allow
+Jenkins is inherently explicit allow model. This means that anything that is not explicitly allowed, is denied.
+
+### Additive
+Jenkins Permissions are additive. Global -> parent -> job is how allows are stacked. If something is allowed at a level above and inheritance is allowed, then it is allowed in all the levels above.
+
+### Credentials
+Any value that provides access to a restricted resource, AKA a secret.
+
+### Credential Provider
+A location that has been configured for Jenkins to retrieve credentials
