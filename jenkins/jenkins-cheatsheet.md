@@ -78,3 +78,6 @@ Extensions to Jenkins that extends it's functionality.
 
 ### PLugin Manager
 Allows you to add, remove, disable, or enable plugins. Also provides information about a plugin such as version conflicts and isses that may arise from an update or installation.
+
+### Jenkins API
+A REST API for programmatically interacting with the Jenkins Server.
