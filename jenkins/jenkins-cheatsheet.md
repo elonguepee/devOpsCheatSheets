@@ -63,3 +63,12 @@ Notifications give active feedback to the status of processes within the project
 - Email
 - SMS
 - Instant Messaging configured by plugins
+
+### Distribuited Builds
+Build jobs in which the executor of the build is located on a node separate from the master. Done for parallelism: Running multiple things at once. Master node acts as a controller for the build, running specific builds on specific agents. 
+
+### Tags
+Agents are tagged to determine what type should be run on what agent. This is so that a node with a specific configuration can run pipeline steps that match it.
+
+### Fugible
+Agents should be fungible (AKA replaceable). This means that local configuration on the agent should be kept to a minimum and global configuration on the master should be preferred.
