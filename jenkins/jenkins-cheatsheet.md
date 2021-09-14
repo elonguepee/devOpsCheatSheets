@@ -104,3 +104,12 @@ Any value that provides access to a restricted resource, AKA a secret.
 
 ### Credential Provider
 A location that has been configured for Jenkins to retrieve credentials
+
+### Artifacts
+Immutable files generated during build or pipeline run. Stored in a repository
+
+### Fingerprinting
+Used to determine which build produced the artifact. A fingerprint is a globally unique hash used to track artifacts or other entities. Stored in the fingerprints directory in the Jenkins home directory. In the fingerprints directory, files are stored in a hierarchy based on the first characters of the checksum. Must be enabled on the project configuration screen.
+
+### Retention Policies
+Configured to prevent bloating of the repos.
