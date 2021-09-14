@@ -45,3 +45,21 @@ Configuration depends on the tool, but general steps are:
 2. Perform Global Configuration steps - Telling Jenkins what the build tool is and how you interact with it
 3. Create a Job/project that uses the tool
 4. Update tools configuration file
+
+### Clean Checkout
+Clean checkout is when you delete the local repository and checkout a new copy of the repo.
+
+### Test types
+- Unit Test: Test of individual components (classes, methods, modules) to ensure outputs are as expected
+- Smoke Test: General test of the software to check functionality. To see if it is stable enough for further testing.
+- Verification Test: "Did we satisfy the build requirements?"
+- Functional Test: "Does this feature work?" or "Can a user do this?"
+- Acceptance Test: Handoff test woth the client to verify that it does what they expect it to do
+
+### Notifications
+Notifications give active feedback to the status of processes within the project.
+
+### Types of notifications
+- Email
+- SMS
+- Instant Messaging configured by plugins
