@@ -72,3 +72,9 @@ Agents are tagged to determine what type should be run on what agent. This is so
 
 ### Fugible
 Agents should be fungible (AKA replaceable). This means that local configuration on the agent should be kept to a minimum and global configuration on the master should be preferred.
+
+### Plugins
+Extensions to Jenkins that extends it's functionality.
+
+### PLugin Manager
+Allows you to add, remove, disable, or enable plugins. Also provides information about a plugin such as version conflicts and isses that may arise from an update or installation.
