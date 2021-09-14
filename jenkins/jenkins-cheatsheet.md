@@ -20,3 +20,28 @@ A job in Jenkins is any runnable task in Jenkins. It is now called a project in 
 
 ### Job/project scope
 Includes all items that are part of the job/project. In some cases global libraries will be available to all jobs.
+
+### Build
+A build is the result of a single execution of a project.
+
+### Build step
+A single task with a project
+
+### Build Trigger
+A criteria for starting a new pipeline to run
+
+### Artifacts
+Immutable files that are generated during a build or a pipeline run. Archived on the Jenkins master for later retrieval. Maintained in a repository.
+
+### Repositories
+Hold items that need to be retrieved.
+
+### Build Tools
+The software that actually performs the build portion of the pipeline
+
+### Build Configuration steps
+Configuration depends on the tool, but general steps are:
+1. Start Jenkins and install required plugins
+2. Perform Global Configuration steps - Telling Jenkins what the build tool is and how you interact with it
+3. Create a Job/project that uses the tool
+4. Update tools configuration file
