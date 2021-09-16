@@ -64,7 +64,7 @@ Notifications give active feedback to the status of processes within the project
 - SMS
 - Instant Messaging configured by plugins
 
-### Distribuited Builds
+### Distributed Builds
 Build jobs in which the executor of the build is located on a node separate from the master. Done for parallelism: Running multiple things at once. Master node acts as a controller for the build, running specific builds on specific agents. 
 
 ### Tags
@@ -113,3 +113,6 @@ Used to determine which build produced the artifact. A fingerprint is a globally
 
 ### Retention Policies
 Configured to prevent bloating of the repos.
+
+### Explicit Deny
+Jenkins has no explicit deny, only explicit allows
