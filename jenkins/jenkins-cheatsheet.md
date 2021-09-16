@@ -116,3 +116,19 @@ Configured to prevent bloating of the repos.
 
 ### Explicit Deny
 Jenkins has no explicit deny, only explicit allows
+
+### Pipeline terms
+- Step: a build step
+- Node: A step that does 2 things:
+  - Schedules the steps
+  - Creates the workspace
+- Stage: A step that calls supported APIs. A logical grouping of items in a pipeline.
+
+### Promoted Builds
+A promoted build is a build that is distinguished from other builds based on some criteria, such as additional tests. This allows the main build process to be done quickly and give developers feedback quickly, while having other proccesses able to run and verify more complete builds.
+
+### Jenkinsfile
+A Jenkinsfile is a file that lives in a repository that tell Jenkins what to run. The same as have a declaritive pipeline on the jenkins server.
+
+### Distributed Builds Architecture
+Agents for windows use jnlp. Linux agents use ssh.
