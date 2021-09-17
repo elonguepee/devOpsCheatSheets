@@ -26,3 +26,52 @@ Points of presence. Network Edges and CDN locations
 ### Projects
 Similar to AWS accounts. Resources are generally owned by an account, although there can be cross-project resources.
 
+## Key Services
+
+### Compute
+- Compute Engine: Virtual Machines, Disks, network. Standard servers. Rented by the second - Like AWS EC2s
+- Cloud Functions: Event-driven serverless functions - Like AWS Lambda
+- Kubernetes Engine: Managed Kubernetes/Containers
+
+### Storage
+- Cloud Storage: Object Storage - Like AWS S3
+- Nearline: Cloud Object storage, but archival. For occasional access.
+- Coldline: Cloud Object storage, but archival. For rare access.
+- Persistent Disk: VM-attached disk. Block storage. Like AWS EBS
+- Cloud Filestore: NFS storage. Like AWS EFS
+
+### AI and Machine Learning
+- Cloud TPU: Specialized Hardare for ML. Tensorflow processing
+
+### Databases
+- Cloud SQL: Managed MySQl/PostgreSQL
+- Cloud Spanner: Horizontally Scalable Relational DB
+- Cloud Firstore: Serverless Document DB
+- Cloud Datastore: Horizontally Scalable Document DB - Pay for what you use.
+- Cloud Bigtable: Petabyte-scale, low-latency nonrelational
+
+### Data and Analytics
+- Cloud Dataflow: Stream/batch data processing
+- Cloud Dataproc: Managed Spark and Hadoop
+- Google Genomics: Managed Genomics Platform
+- Cloud Pub/Sub: Global Real-time Messaging - Can connect almost anything to anything. Like AWS SNS
+- Google BigQuery: Data Warehouse/Analytics - Serverless
+
+### Networking Products
+- Virtual Private Cloud: Software Defined Networking
+- Dedicated Interconnect: Dedicated private network connection
+- Cloud NAT: Network Address Translation
+- Cloud Load Balancing: Multi-region Load Distribution
+- Network Service Tier: Price vs. Performance Tiering
+- Cloud Armor: DDoS Protection and WAF
+- Cloud CDN: Content Delivery Network
+- Cloud DNS: Programmable DNS Serving
+
+### Maangement Tools
+- Stackdriver: A family of logging services
+
+### Identity and Security
+- Cloud Identity: Manage Users, Devices and Apps
+- Cloud IAM: Resource Access Control
+- Cloud HSM: Hardware Security Module Service
+- Cloud Data Loss Prevention API: Machine Learning to Classify and redact sensitive data.
