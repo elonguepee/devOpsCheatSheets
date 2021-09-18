@@ -75,3 +75,26 @@ Similar to AWS accounts. Resources are generally owned by an account, although t
 - Cloud IAM: Resource Access Control
 - Cloud HSM: Hardware Security Module Service
 - Cloud Data Loss Prevention API: Machine Learning to Classify and redact sensitive data.
+
+## Data flows
+### 3 core components
+- Moving - Network Services
+- Processing - Compute Services
+- Remembering - Storage Services
+
+## Basic Services Overview
+### Storage
+#### Cloud Storage:
+- Need a bucket to store objects.
+- By default all files are private. Need to set it to public
+
+## Commands
+```bash
+gcloud config list
+```
+Lists config data such as project, account being used, etc.
+
+```bash
+gsutil ls
+```
+Lists cloud storage buckets
