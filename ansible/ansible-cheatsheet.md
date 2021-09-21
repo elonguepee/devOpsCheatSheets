@@ -21,3 +21,6 @@ A playbook is a single yaml file with a list of plays in it. Plays are a set of 
 
 ### Modules
 Modules are the actions run by tasks. 
+
+### Idempotency
+An action is idempotent if performing it multiple times results in the same state as running it once. Ansible ensures the state of something is in the desired state using words like started as opposed to start. With start example, Ansible will check if something has been started and if not, it will start it. If it has been started, Ansible won't do anything.
