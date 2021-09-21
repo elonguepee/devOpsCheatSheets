@@ -137,6 +137,16 @@ Can use a configuration for a single command with the global flag --configuratio
 - Need a bucket to store objects.
 - By default all files are private. Need to set it to public
 
+### Compute
+#### Instance Templates
+Instance templates are exactly what they sounds like: templates for compute engine instances. Some properties of Instance templates are:
+- They are global
+- They are immutable. You cannot edit them, you must create new ones.
+
+#### Instance Groups
+Instance groups are groups of instances. Shocking. Unmanaged instance groups are essentially manual groups of instances. No autoscaling, health checks, etc. Managed instance groups use instance templates to scale up and down instances, do health checks, etc. Some properties of instance groups:
+- An unmanaged instance group cannot be multi-zone.
+
 ## Commands
 ```bash
 gcloud config list
@@ -162,3 +172,8 @@ Lists gcloud services for the project. Lists enabled services by default.
 gcloud compute instances create <vmname>
 ```
 Creates a compute instance
+
+```bash
+gcloud compute ssh <vmname>
+```
+SSH to an instance by name
