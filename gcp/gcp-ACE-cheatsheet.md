@@ -147,6 +147,42 @@ Instance templates are exactly what they sounds like: templates for compute engi
 Instance groups are groups of instances. Shocking. Unmanaged instance groups are essentially manual groups of instances. No autoscaling, health checks, etc. Managed instance groups use instance templates to scale up and down instances, do health checks, etc. Some properties of instance groups:
 - An unmanaged instance group cannot be multi-zone.
 
+### Security
+Identity Products:
+- G Suite
+- Cloud Identity
+- Service Accounts for applications and services
+Identity Hierarchy:
+- Google Groups
+
+Authorization Products:
+- Resource Hierarchy: Organizations, Folders, Projects
+- IAM:
+  - Permissions
+  - Roles
+  - Bindings
+- GCS ACLs
+- Billing Management
+- Networking Structures and restrictions
+
+Accounting Products:
+- Audit/Activity Logs
+- Billing Export:
+  - To BigQuery
+  - To files in GCS bucket
+  - GCS Object Lifecycle Management
+
+#### Resource Hierarchy
+- Resource: Something you setup in GCP.
+- Projects: Container for a set of resources
+- Folder: contains any set of subfolders and projects
+- Organization: Tied to G Suite or Cloud Identity Domain
+
+So, an Organization (IE example.com) has folders in it, that have projects in them, that contain resources.
+
+#### Trust Boundary
+Resources within a project "trust" eachother. Ex: A GCE instance can read from GCS bucket if they're in the same project by default, but not in other projects.
+
 ## Commands
 ```bash
 gcloud config list
