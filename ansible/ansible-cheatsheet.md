@@ -30,3 +30,25 @@ Use 'when' keyword torun a playbook only if a certain condition is met.
 
 ### Loops
 Loops run through a set of variables in a task. The use a loop, use the loop keyword or the with_items syntax. To represent the current item in the playbook, the 'item' keyword is used.
+
+### Roles
+A role represents a group of tasks that are run on a server to be considered part of that "role". Makes playbooks reusable. More about roles:
+- Roles can be in a roles directory in the directory as the playbook calling them.
+- Roles can also be added into a common roles directory on the system /etc/ansible/roles. The path to this directory can also be set in the /etc/ansible/ansible.cfg with the roles_path variable.
+
+### ansible-galaxy
+A tool that helps manage/generate ansible roles. An example of creating a new role:
+```bash
+ansible-galaxy init <rolename>
+```
+Will create a directory structure for a new role.
+
+```bash
+ansible-galaxy search <rolename>
+```
+Searches ansible galaxy for roles
+
+```bash
+ansible-galaxy install <rolename>
+```
+Installs a role to default roles directory.
