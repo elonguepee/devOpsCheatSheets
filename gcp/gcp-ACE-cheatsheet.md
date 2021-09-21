@@ -183,6 +183,21 @@ So, an Organization (IE example.com) has folders in it, that have projects in th
 #### Trust Boundary
 Resources within a project "trust" eachother. Ex: A GCE instance can read from GCS bucket if they're in the same project by default, but not in other projects.
 
+#### Permissions
+- Follow the format: Service.Resource.Verb
+- Typically correspond to REST API methods
+
+#### Role
+- A collection of permissions to use or manage GCP resources
+- Primitive Roles: Defined at project level and usually too broad. They are:
+  - Viewer: Read-only
+  - Editor: Can view and change things
+  - Owner: Can also control access and billing
+- Predefined Roles: Give granular access to specific resources
+- Custom Roles: Project or Org level collection to define granular permissions
+
+
+
 ## Commands
 ```bash
 gcloud config list
