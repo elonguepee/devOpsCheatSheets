@@ -24,3 +24,9 @@ Modules are the actions run by tasks.
 
 ### Idempotency
 An action is idempotent if performing it multiple times results in the same state as running it once. Ansible ensures the state of something is in the desired state using words like started as opposed to start. With start example, Ansible will check if something has been started and if not, it will start it. If it has been started, Ansible won't do anything.
+
+### Conditionals
+Use 'when' keyword torun a playbook only if a certain condition is met.
+
+### Loops
+Loops run through a set of variables in a task. The use a loop, use the loop keyword or the with_items syntax. To represent the current item in the playbook, the 'item' keyword is used.
