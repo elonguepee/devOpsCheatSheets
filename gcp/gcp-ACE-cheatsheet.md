@@ -76,6 +76,55 @@ Similar to AWS accounts. Resources are generally owned by an account, although t
 - Cloud HSM: Hardware Security Module Service
 - Cloud Data Loss Prevention API: Machine Learning to Classify and redact sensitive data.
 
+## gcloud
+- The command line tool to interact with gcp.
+- shares config with gsutil and bq
+- In general, CLI tools are more powerful than the console, but less powerful than the REST API
+
+### Basic Syntax for gcloud commands:
+```bash
+gcloud <global_flags> <service/product> <group/area> <command> <command_flags> <parameters>
+```
+
+### GLobal flags
+- --help/-h: gets help for command
+- --project: specifies project
+- --account: specifies account
+- --filter: filters data being returned. Not always available, but if it is, usually better than grep.
+- --format: Lets you specify format (JSON, YAML, CSV, etc.). Can be useful to pipe into jq for processing.
+- --quiet/-q: Won't prompt for destructive actions.
+
+### Configuration properties
+To set a config property:
+```bash
+gcloud config set <property> <value>
+```
+To get the value for a property:
+```bash
+gcloud config get-value <property>
+```
+To unset a config property:
+```bash
+gcloud config unset <property>
+```
+
+### Configurations
+Groups of settings you can switch between. Useful when using multiple projects. <br/>
+For an interactive workflow to set common properties in a config use command:
+```bash
+gcloud init
+```
+
+To create a new configuration command:
+```bash
+gcloud config configurations create <config_name>
+```
+
+To start using a configuration:
+```bash
+gcloud config configurations activate <config_name>
+```
+Can use a configuration for a single command with the global flag --configuration=<config_name>
 ## Data flows
 ### 3 core components
 - Moving - Network Services
@@ -98,3 +147,18 @@ Lists config data such as project, account being used, etc.
 gsutil ls
 ```
 Lists cloud storage buckets
+
+```bash
+gcloud compute instances list
+```
+Lists instances
+
+```bash
+gcloud services list
+```
+Lists gcloud services for the project. Lists enabled services by default.
+
+```bash
+gcloud compute instances create <vmname>
+```
+Creates a compute instance
