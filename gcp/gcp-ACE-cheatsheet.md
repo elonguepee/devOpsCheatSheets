@@ -196,7 +196,48 @@ Resources within a project "trust" eachother. Ex: A GCE instance can read from G
 - Predefined Roles: Give granular access to specific resources
 - Custom Roles: Project or Org level collection to define granular permissions
 
+#### Member
+- A google-known entity.
+- Each member identified by a unique email address.
+- Can be:
+  - user: a specific google account
+    - For people
+  - serviceAccount:
+    - for apps/services
+  - group: Group of google users and service accounts
+  - domain: Whole domain managed by G Suite or Cloud Identity
+  - allAuthenticatedUsers - Any Google account or service account. Essentially public
+  - allUsers - anyone on the internet. Completely anonymous access
+- Group should be default choice.
 
+#### Groups
+- A named collection of google accounts and service accounts
+- Every group has a unique email address associated with the group
+- Never act *as* the group
+- Can even use groups to be owner of projects when within an organization
+- Groups can be nested.
+
+#### Policies
+- Policies bind Members to roles for a scope of resources
+- Who can do what to which things?
+- Can attach policies at Organization, Folder, Project, or resource level
+- Where you attach it determines the scope of the resources the policy applies to.
+- The policy itself determines what what roles and members it applies to.
+- Policies are always additive. Can only add allow, not deny.
+- Child Policies cannot restrict access given at a higher level.
+- Each resource can only have one policy attached to it.
+- Use groups!
+- USe granular commands such as add-iam-policy-binding as opposed to editing whole policy. Avoids race conditions, simple, less error prone.
+
+To add a policy binding:
+```bash
+gcloud <group> add-iam-policy-binding <resource_name> --role <role_id> --member user:[user_email]
+```
+
+To remove a policy binding:
+```bash
+gcloud <group> remove-iam-policy-binding <resource_name> --role <role_id> --member user:[user_email]
+```
 
 ## Commands
 ```bash
