@@ -266,6 +266,27 @@ gcloud <group> remove-iam-policy-binding <resource_name> --role <role_id> --memb
 #### Invoice billing
 Instead of getting charged at the end of the month, you get a bill that you have to pay.
 
+### Networking
+#### Premium vs. Standard Routing Tier
+- In the standard tier, once a request is made, traffic enters the Google network in the region of the GCP destination. This means that the traffic will have to make it to the desination region first before entering googles network.
+- In the premium network tier, traffic enters the google network in the location closest to the user.
+- Additionally with standard routing, the requestor has to know the destination first. With premium routing, A user could enter the google network at a google Point of Presence and then it could be decided that a better endpoint is located closer and that could be used.
+
+#### VPC
+- Virtual Private Cloud. Where you define your networking in GCP
+- Overall is global.
+- Subnets logical spaces for resources. They are regional.
+- All subnets can reach all others globally without needing VPNs.
+
+#### Routes 
+- Routes define "next hop" for targets based on destination IP.
+- Routes are global and are applied by instance-level tags.
+
+#### Firewall Rules
+- Global
+- Further filter data that would otherwise route.
+- Applied by instance-level tags or service accounts.
+- Default firewall rules block all data going in and allow all going out.
 
 ## Commands
 ```bash
