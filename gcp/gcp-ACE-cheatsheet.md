@@ -239,6 +239,34 @@ To remove a policy binding:
 gcloud <group> remove-iam-policy-binding <resource_name> --role <role_id> --member user:[user_email]
 ```
 
+#### Billing Accounts
+- Represents some way to pay for GCP usage.
+- A type of resource that lives outside of projects
+- Can be owned by an organization inheriting org level IAM policies.
+- Can be linked to projects, but doesn't own them and has no affect on project IAM
+- A billing account can be linked to multiple projects, but a project can only have one billing account.
+
+#### Billing account Roles.
+**Billing Account User**
+- A billing account user is a role that can be assigned at the Organization or billing account level. 
+- The user with this role can link projects to billing accounts.
+**Billing Account Creator**
+- Org level
+- Can create new billing accounts
+**Billing Account Administrator**
+- Billing account level
+- Can manage billing accounts, but not create them
+**Billing Account Viewer**
+- Can view cost info and transactions.
+**Project Billing Manager**
+- Project Level
+- Let's you link a billing account to that specific project.
+- To link a project to a billing account you need **project billing manager** on the project, and **Billing Account User** on the billing account.
+
+#### Invoice billing
+Instead of getting charged at the end of the month, you get a bill that you have to pay.
+
+
 ## Commands
 ```bash
 gcloud config list
