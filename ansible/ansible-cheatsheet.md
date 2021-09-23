@@ -36,6 +36,18 @@ A role represents a group of tasks that are run on a server to be considered par
 - Roles can be in a roles directory in the directory as the playbook calling them.
 - Roles can also be added into a common roles directory on the system /etc/ansible/roles. The path to this directory can also be set in the /etc/ansible/ansible.cfg with the roles_path variable.
 
+### Facts
+Information about a target machine collected by ansible such as distribution, fqdn, etc.
+
+### Configuration files
+The default configuration file is in /etc/ansible/ansible.cfg, but custom ones can be specified in other directories. The configuration file can also be specified in the environment variable ANSIBLE_CONFIG. The order of priority of ansible configurations are as follows:
+1. Ansible configuration environment variables.
+2. An ansible.cfg file in the directory that ansible is being run in.
+3. The .ansible.cfg file in the users home directory
+4. The default /etc/ansible/ansible.cfg file.
+
+Each one of these files don't need to have all values. They only need to have the parameters that need to be overwritten.
+
 ### ansible-galaxy
 A tool that helps manage/generate ansible roles. An example of creating a new role:
 ```bash
@@ -52,3 +64,42 @@ Searches ansible galaxy for roles
 ansible-galaxy install <rolename>
 ```
 Installs a role to default roles directory.
+
+### Creating your own Modules
+Custom Modules can be created using python.
+
+## Commands
+```bash
+ansible-playbook playbook.yml --check
+```
+Does a dry run
+
+```bash
+ansible-playbook playbook.yml --start-at "<task_name>"
+```
+Starts a playbook at a specific task
+
+```bash
+ansible-playbook playbook.yml --tags "<tag_name>"
+```
+Only run tasks with specified tags.
+
+```bash
+ansible-playbook playbook.yml --skip-tags "<tag_name>"
+```
+Only run tasks that don't have specific tags
+
+```bash
+ansible-config list
+```
+Lists all configurations
+
+```bash
+ansible-config view
+```
+Shows current config file
+
+```bash
+ansible-config dump
+```
+Shows current current settings and where they are from
