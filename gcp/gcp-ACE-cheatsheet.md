@@ -278,6 +278,9 @@ Instead of getting charged at the end of the month, you get a bill that you have
 - Subnets logical spaces for resources. They are regional.
 - All subnets can reach all others globally without needing VPNs.
 
+#### Shared VPCs
+Within an organization you can share VPC's among projects. One project will own the VPC and other projects will be granted access to all/part of it.
+
 #### Routes 
 - Routes define "next hop" for targets based on destination IP.
 - Routes are global and are applied by instance-level tags.
