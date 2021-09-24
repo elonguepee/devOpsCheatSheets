@@ -476,7 +476,55 @@ Within an organization you can share VPC's among projects. One project will own 
 - Direct low-latency connection to certain CDN providers with cheatper egress rates
 - For external CDNs not google's Cloud CDN
 
+#### Machine Learning/AI
+**Cloud ML Engine**
+- Massively scaleable managed service for ML Models
+- Enables Tensorflow on datasets of any size
+- endless use cases
+- Integrates with GCS/BQ, Cloud Datalab, Cloud Dataflow
+- Supports Online and batch, prioritizing either latency or job time.
+- Can also download models and make predictions anywhere
+- Hypertune automatically tunes hyperparameters to avoid manual tweaking
+- Pay per hour to train model based on chosen capabilities
 
+**Cloud Vision API**
+- Pretrained API
+- Classifies images into categories. 
+- Finds text
+- Detects faces
+- Either upload images directly or point to stored images in GCS
+- Pay per image
+- Pay for certain features
+
+**Cloud Speech API**
+- Pre-trained ML model for speech to text
+- For pre-recorded or real time audio
+- Lot's of cool features. Noisy audio, filtering innappropriate content, etc.
+- Pay per 15 seconds of audio
+
+**Cloud Natural Language API**
+- Analyzes text for sentiment, intent, content classification and extracts info.
+- Pre-trained ML model
+- Works with other ML models
+- Charged per request of 1000 characters
+
+**Cloud Translation API**
+- Translate text among over 100 languages
+- Pre trained ML model
+- Pay per character processed
+
+**Dialogflow**
+- Build conversational interfaces for websites, mobile apps, etc.
+- chatbots
+- Paid plan is unlimited, but charges per request: more for voice, less for text.
+
+**Cloud video intelligence API**
+- Annotates videos in GCS with info about what they contain
+- Pretrained model for video scene analysis and subject identification
+
+**Cloud job discovery**
+- Helps career sites, company job boards, improve engagement and conversion
+- Helps job seekers search job posting databases
 
 ## Commands
 ```bash
