@@ -46,9 +46,9 @@ Similar to AWS accounts. Resources are generally owned by an account, although t
 ### Databases
 - Cloud SQL: Managed MySQl/PostgreSQL
 - Cloud Spanner: Horizontally Scalable Relational DB
-- Cloud Firstore: Serverless Document DB
+- Cloud Firestore: Serverless Document DB
 - Cloud Datastore: Horizontally Scalable Document DB - Pay for what you use.
-- Cloud Bigtable: Petabyte-scale, low-latency nonrelational
+- Cloud Bigtable: Petabyte-scale, low-latency nosql
 
 ### Data and Analytics
 - Cloud Dataflow: Stream/batch data processing
@@ -404,6 +404,78 @@ Within an organization you can share VPC's among projects. One project will own 
 - Free to use service, but you pay for the actions (data transfer, etc.)
 
 #### External Networking
+**Google Domains**
+- Googles Domain Registrar
+- Supports DNSSEC
+
+**Cloud DNS**
+- Managed DNS
+- 100% uptime guarantee
+- SUpports DNSSEC
+- Low Latency globally
+- Pay fixed fee per zone to store and distribute DNS records
+- Pay for lookups
+
+**Static IPs**
+- Reserve Static IPs in projects and assign them to servers 
+- Regional Ips are for GCE instances and Network Load balancers
+- Global IPs used for global load balancers
+  - Use Anycast IPs
+- Pay for reserved IPs that aren't in use to dicourage wasting them.
+
+**Load Balancer**
+- Scaleable traffic distribution with autoscaling and Cloud CDN
+- Like ELB
+- Natually handles spikes without any pre-warning
+- No instances or devices provisioned
+
+**Cloud CDN**
+- Content delivery from within GCP
+- Supports HTTP/S
+- Pay for request volume
+- Pay per cache invalidation request.
+
+#### Internal Networking
+**VPC**
+- Global
+- IPv4 unicast
+- SDN
+- Subnets are regional
+- Can peer with other VPCs
+- VPC is free, but some services aren't (like VPNs)
+
+**Cloud Interconnect**
+- Options for connecting external networks to Google's network
+- Private connections via Cloud VPN or Dedicated/Partner Interconnect
+- Public Google services via External Peering
+  - Direct peering for high volume
+  - Carrier Peering if low volume via a partner
+- Significantly lower egress fees.
+  - Except Cloud VPN which is the same
+
+**Cloud VPN**
+- IPSec VPN to connect to VPC via public internet for low volume data connections
+- For persistent/static connections between gateways (not for dynamic client)
+  - Must have a static IP
+- Encrypted link to VPC into one subnet
+
+**Dedicated interconnect**
+- For high volume link between VPC and on prem
+- Links are private but not encrypted; can layer own encryption
+- For critical applications, recommended to have redundant connections in different locations
+
+**Cloud Router**
+- Dynamic Routing for hybrid networks linking to GCP
+- Works with Cloud VPN and Dedicated interconnect
+- Automatically learns subnets in VPC and announces them to on-prem network
+- Without cloud router, you must manage static routes for VPN
+  - Changing IP addresses on either side requires recreating it
+- Free to set up, but pay for VPC egress charges.
+
+**CDN interconnect**
+- Direct low-latency connection to certain CDN providers with cheatper egress rates
+- For external CDNs not google's Cloud CDN
+
 
 
 ## Commands
