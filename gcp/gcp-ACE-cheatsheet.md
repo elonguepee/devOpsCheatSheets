@@ -291,6 +291,121 @@ Within an organization you can share VPC's among projects. One project will own 
 - Applied by instance-level tags or service accounts.
 - Default firewall rules block all data going in and allow all going out.
 
+### App Engine
+- Platform as a service that takes code and runs it.
+- Natively supports Go, Java, node, and a few others in standard mode.
+- Flex mode will run any container you give it.
+- Autoscales
+- Basically pay for underlying instances.
+
+### Service Summaries
+
+#### Compute
+**GKE**
+- No management fee, just pay for nodes
+
+**Cloud Functions**
+- Runs code in response to an event
+- Node, python, go, java
+- Like Lambda
+- Just pay for how long it runs
+- Automatically get an http endpoint, no need to setup API gateway.
+- Can trigger based on Cloud Storage events, Pub/sub messages, etc.
+- Massively scaleable
+
+#### Storage
+
+**Local SSD**
+- Attached to a single specific GCE instance
+- Similar to instance store on AWS.
+- Very very fast
+- 375GB SSD
+- Can Stripe across 8 for even better performance
+- Data is lost whenever instance shuts down
+
+**Persistent Disk**
+- Block storage.
+- Default boot for instances
+- Like AWS EBS
+- Can persist and are replicated for durability
+- Can resize while in use, but will need the file system to update within the VM
+- Snapshots and machine images add more capability and flexibility
+- Not file based, block based.
+
+**Cloud Filestore**
+- Fully managed file-based storage
+- Like AWS EFS.
+- Consistent Performace
+- Primary use is for "lift-and-shift" migrations.
+- Pay for how much you provision, not how much you use.
+
+**Cloud Storage**
+- Object store
+- infinitely scaleable
+- fully managed
+- versioned
+- 11 9's availability
+- Strongly consistent
+- Integrated site hosting and CDN functionality
+- Lifecycle transitions like S3
+- Difference in storage tiers is availability and cost, not latency. No thaw delay.
+- Pay for storage and storage amounts
+
+**Cloud SQL**
+- Fully managed MySQL and PostgreSQL
+- Like AWS RDS
+- Scaling is manual
+- Basically pay for underlying GCE instances and Persistent Disks
+
+**Cloud Spanner**
+- Horizontally scaleable
+- strongly consistent
+- Relational database
+- Infinitely scaleable
+- 5 9s for multi-region
+- Pay for provisioned node time plust storage time
+- Huge and expensive
+
+**BigQuery**
+- Serverless
+- column store data warehouse
+- Kind of like REdshift, but serverless
+- Pay for GBs actually scanned during queries
+- Attempts to reuse cached results, which are free.
+- Pay for data stored. Relatively inexpensive
+- Pay for streaming inserts 
+
+**Cloud Bigtable**
+- NoSQL
+- Low Latency and high throughput
+- For large operational and analytical apps
+- For huge loads
+
+**Cloud Datastore**
+- Managed and autoscaled NoSQL database
+- Like DynamoDB/mongodb
+
+**Firebase Realtime DB and cloud firestore**
+- NoSQL document stores with real-time client updates via managed websockets
+- Firestore has collections and 
+
+#### Data Transfer
+**Data Transfer Appliance**
+- A rackable, physical server that you ship to google.
+- For ingest only. No egress
+- Like snowball
+- 100TB or 480TB versions
+
+**Storage Transfer Service**
+- Copies objects for you.
+- Always to a GCS bucket
+- Source can be S3, HTTP(S) Endpoint or another GCS bucket
+- One time or scheduled recurring
+- Free to use service, but you pay for the actions (data transfer, etc.)
+
+#### External Networking
+
+
 ## Commands
 ```bash
 gcloud config list
@@ -321,3 +436,13 @@ Creates a compute instance
 gcloud compute ssh <vmname>
 ```
 SSH to an instance by name
+
+```bash
+gcloud auth configure-docker
+```
+Configures gcp docker registry
+
+```bash
+gcloud container clusters get-credentials <cluster-name>
+```
+Gets the credentials and sets up kubectl for the gke cluster.
