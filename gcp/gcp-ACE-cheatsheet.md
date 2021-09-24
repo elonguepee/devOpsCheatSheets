@@ -526,6 +526,71 @@ Within an organization you can share VPC's among projects. One project will own 
 - Helps career sites, company job boards, improve engagement and conversion
 - Helps job seekers search job posting databases
 
+#### Big data/IoT
+**Cloud IoT Core**
+- Fully managed service for IoT devices globally
+- Device manager handles device identity, authentication, config, and control
+- Protocol bridge is the bridge to Pub/Sub for processing
+- Connect securely using IoT MQTT or HTTPS protocols.
+- Certificate Authority signed certs can be used to verify device ownership on first contact
+- Pay per MB exchanged between devices and IoT Core.
+
+**Cloud Pub/Sub**
+- Infinitely scaleable, at least once messaging service for ingestion, decoupling, etc.
+- Like SNS by default, but has a polling mode that is like SQS
+- Global by default. Can publish and consume anywhere with consistent latency
+- Up to 10 MB in size and stored for up to 7 days
+- No DLQ
+- Push mode delivers to HTTPS endpoints and will succeed on HTTP success status
+- Pull mode will hold onto messages until client asks for them
+  - Lets clients set the rate of consumption, and supports batch and long-polling
+  - long-polling is when a client opens a connection with pub/sub and waits for a message to come through
+- Pay for data volume
+
+**Cloud dataprep**
+- Explore, clean and prepare data for analysis without running servers
+- More for Business analysts, not IT pros.
+- "Data Wrangling"
+- Source Data from GCS, BigQuery, or file upload.
+- To clean up data
+- Automatically detects schemas, datatypes, possible joins and anomalies
+- Pay for underlying dataflow job, plus management and overhead
+- Also pay for other accessed services
+
+**Cloud Dataproc**
+- Batch Mapreduce processing via configurable, managed Spark and Hadoop Clusters
+- Processing data
+- For moving/replacing Spark/Hadoop. Similar to AWS EMR
+- Integrated with Cloud Storage, Big Query, Bigtable, and some stackdriver services
+- "Image Versioning" switches between different versions of Spark, Hadoop, and other tools
+- Pay directly for underlying GCE servers used in Cluster
+- Pay a management fee for per VCPU-hour in the cluster
+- If building a new spark/hadoop cluster, should use dataflow
+
+**Cloud Dataflow**
+- Autoscaled and fully managed batch or stream mapreduce-like processing
+- Open Source as Apache Beam
+- Autoscales and dynamically redistributes lagging work, mid-job, to optimize runtime
+- Integrated with a bunch of stuff
+- Basically pay for underlying worker GCE via consolidated charges
+  - Pay per second for vCPUs, RAM, PD/PD-SSD
+
+**Cloud datalab**
+- Interactive tool for data exploration, analysis, visualization and machine learning
+- Uses Jupyter Notebook
+- Supports iterative development of data analysis algorithms in Python/SQL/~JS
+- Pay for GCE/GAE instance underlying and PD storing notebooks
+
+**Cloud Data studio**
+- Big data visualization tool for dashboards/reporting
+- Can get data from several places like BigQuery, Cloud SQL, GCS, etc.
+- Lot's of chart types and such
+- Familiar G Suite sharing and real time collaboration
+
+**Cloud Genomics**
+- Query complete Genomic information of Large research projects in seconds
+- Process many genomes and experiments in parallel
+
 ## Commands
 ```bash
 gcloud config list
