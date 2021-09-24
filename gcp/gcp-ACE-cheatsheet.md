@@ -678,6 +678,45 @@ Within an organization you can share VPC's among projects. One project will own 
 - Fully integrated with KMS
 - Basically KMS, but more expensive to meet compliance
 
+#### Operations and Management
+**Stackdriver**
+- Family of services for monitoring/logging
+- Stack Driver can track multiple GCP projects, AWS accounts, and other resources
+- Usage based pricing
+
+**Stackdriver Monitoring**
+- Visibility into performance, uptime, etc.
+
+**Stackdriver Logging**
+- For storage and management of logs
+- Collection build into some GCP and AWS resources
+
+**Error Reporting**
+- Tracks crashes in centralized interface
+- Parses Java, python, Javascript, PHP, Ruby, C#, and Go
+
+**Trace**
+- Tracks and displays across call tree and timings across distributed systems
+
+**Debugger**
+- Grabs program state in live deploys (variables, expression, callstack)
+- Source view supports most major git repositories
+- Free
+
+**Profiler**
+- Continous CPU and Memory Usage profiling
+- Use it in prod is recommeded
+- Agent-based
+- Free
+
+**Deployment Manager**
+- Googles IaaC
+
+**Cloud Billing API**
+- Programmatically manage billing for GCP projects and get GCP pricing
+
+
+
 ## Commands
 ```bash
 gcloud config list
