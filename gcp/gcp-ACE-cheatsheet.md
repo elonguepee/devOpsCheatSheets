@@ -591,6 +591,93 @@ Within an organization you can share VPC's among projects. One project will own 
 - Query complete Genomic information of Large research projects in seconds
 - Process many genomes and experiments in parallel
 
+#### Identity and Access (Core Security)
+**Roles**
+- Collections of permissions to use or manage GCP resources
+- Permissions allow you to perform certain actions
+- Permissions usually in the form of service.resource.verb
+
+**Cloud IAM**
+- Controls access to GCP resources
+- Authorization, not really Authentication/Identity
+- Every identity has a unique email account
+- Policies bind members to roles at a hierarchy level: Org, folder, project, resource
+- Policies say who can do what to which things
+- Free to use, just pay for services that are accessed
+
+**Service Account**
+- Represent a Google account the represents a application, not a user.
+- Use Cloud-platform managed keys whenever possible for GCP
+  - Google manages keys and rotation for you
+
+**Cloud Identity**
+- Identity as a Service to provision and manage users and groups
+- Free Google Accounts for non G-suite users. tied to a verified domain
+- Centrally manage all users in Google admin console. Supports Compliance
+- Can set up 2-step
+- Normal Google accounts that work with stuff like Chrome
+
+**Security Key Enforcement**
+- USB or Bluetooth 2-step device
+- Eliminates MITM attacks
+
+**Resource Manager**
+- Custom Folder Hierarchy for projects
+- Organization is root node in heirarchy and folders underneath
+- Must have a verified domain setup
+
+**Cloud IAP**
+- Identity Aware Proxy
+- Guards Apps running on GCP via identity verification, not VPN access
+- Based on CLB and IAM. Only allows authenticated and authorized requests through
+- Grant access to any IAM entities, incl. groups and service accounts
+- Pay for Load Balancing and protocol forwarding, etc.
+
+**Cloud Audit Logging**
+- Who did what, where, when within GCP projects
+- Admin Activity and System Events are things done by your members
+- Access Transparency are things done by Google Support staff
+- Both have 400 day retention
+- Data Access - Tracking when data is accessed for GCP managed services
+  - For 30 days
+
+#### Security Management - Monitoring and Response
+**Cloud Armor**
+- Edge-level protection against DDOS and other attacks.
+- Only for Global load balancers
+- Blocked attacks never reach systems
+- Can preview effects of changes
+- Monthly charge
+
+**Security Scanner**
+- Free but limited Google App Engine vulnerability scanner
+
+**Cloud DLP API**
+- Finds and optionally redacts sensitive info
+
+**Event Threat Detection**
+- Scan logs for suspicious activity
+- Can export to BigQuery
+
+**Cloud SCC**
+- SIEM software
+- Free, but charged for services used such as DLP API if configured
+
+#### Encryption Keys
+**Cloud KMS**
+- To manage Crypto keys
+- Similar to Hashicorp Vault
+- Supports Symmetric and asymmetric
+- Integrated with IAM and Cloud Audit logging
+- Key deletion has 24 hour delay
+
+**Cloud HSM**
+- Cloud KMS managed by compliant HSM
+- Hosts keys and performs crypto operations
+- Let's you meet compliance requirements
+- Fully integrated with KMS
+- Basically KMS, but more expensive to meet compliance
+
 ## Commands
 ```bash
 gcloud config list
