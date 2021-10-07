@@ -85,3 +85,14 @@ Takes VMs and converts them to containers.
 - Cloud run is container based and is portable to any knative cluster, where as App Engine is tied to GCP/appengine
 - Cloud run is billed by the millisecond and App engine is billed by the minute
 
+### VPC Service Controls
+- Sets up a "perimeter" to protect access to GCP services. Anything outside this perimeter cannot access protectec services. For Example, a perimeter can be setup to prevent any member from accessing a GCS bucket from outside the project.
+- For preventing Exfiltration of Data
+
+### Spinnaker
+An open source continuous Delivery tool
+
+### Istio Service Mesh
+A way to centralize communication and control across all microservices in a Kubernetes cluster. Network traffic will use the service mesh instead of using the route directly. Comprised of these parts:
+- Data Plane: A sidecar container that runs in the pod and manages communication
+- Control Plane: A set of applications for controlling microservices

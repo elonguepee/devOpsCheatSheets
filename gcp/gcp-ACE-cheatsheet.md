@@ -461,7 +461,7 @@ Within an organization you can share VPC's among projects. One project will own 
 
 **Dedicated interconnect**
 - For high volume link between VPC and on prem
-- Links are private but not encrypted; can layer own encryption
+- Linka are private but not encrypted; can layer own encryption
 - For critical applications, recommended to have redundant connections in different locations
 
 **Cloud Router**
@@ -715,7 +715,29 @@ Within an organization you can share VPC's among projects. One project will own 
 **Cloud Billing API**
 - Programmatically manage billing for GCP projects and get GCP pricing
 
+#### Development and APIs
+**Cloud Source Repositories**
+- Git repos
 
+**Cloud Build**
+- CI/CD service
+- Pay per minute
+
+**Container Registry**
+- Docker container registry
+- Native Docker login support
+- Just a layer of GCS. No extra cost
+
+**Cloud Endpoints**
+- Handles authorization, moinitoring, logging, and API keys for APIs backed by GCP
+- Proxy instances and distibuted and hook into Cloud load balancer
+- Pay per call to the API
+
+**Apigee**
+- Full Featured API platform
+
+**Testlab for Android**
+- Actual Android phones to test against in a data center
 
 ## Commands
 ```bash
